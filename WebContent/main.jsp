@@ -32,7 +32,7 @@
 			<%@ include file="attach/header.jsp"%>
 		</div>
 	</nav>
-	
+
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Hello, world!</h1>
@@ -42,7 +42,7 @@
 			</p>
 		</div>
 		<div class="row">
-			<div class="col-md-8 col-md-offset-3">
+			<div class="col-md-8 col-md-offset-2">
 				<form class="form-inline">
 					<div class="form-group">
 						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
@@ -96,6 +96,14 @@
 							<option>3</option>
 							<option>4</option>
 							<option>5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control col-md-2">
+							<c:forEach begin="1" end="16" var="n">
+								<option>숙박인원 ${n}명</option>
+							</c:forEach>
+							<option>숙박인원 16+명</option>
 						</select>
 					</div>
 				</form>
