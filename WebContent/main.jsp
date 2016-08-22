@@ -141,7 +141,7 @@
 		</div>
 
 		<hr>
-
+<!-- ss -->
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
