@@ -79,11 +79,12 @@
 							<input type="password" placeholder="Password" class="form-control">
 						</div>
 						<button type="submit" class="btn btn-success">Sign in</button>
+						<button type="submit" class="btn btn-primary">Sign up</button>
 						<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
 					</c:when>
 					<c:otherwise>
 						<c:choose>
-							<c:when test="${user != fb}">
+							<c:when test="${user.type != fb}">
 								<a style="text-decoration: none; color: white"><c:out value="${user}"/>님 환영합니다.</a>
 								<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
 							</c:when>
