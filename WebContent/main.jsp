@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
-	pageContext.setAttribute("user", "fb");
+	//pageContext.setAttribute("user", "fb");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,11 +39,10 @@
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
-			<%@ include file="attach/header.jsp" %>
+			<%@ include file="attach/header.jsp"%>
 			<!--/.navbar-collapse -->
 		</div>
 	</nav>
-
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
 		<div class="container">
@@ -53,28 +52,65 @@
 				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
 			</p>
 		</div>
-		<div>
-			<select class="form-control">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<select class="form-control col-md-4">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<select class="form-control col-md-4">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-3">
+				<form class="form-inline">
+					<div class="form-group">
+						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
+					</div>
+					<div class="form-group">
+						<select class="form-control">
+							<c:forEach begin="2016" end="2018" step="1" var="val">
+								<option>${val}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control col-md-1">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control col-md-1">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					&nbsp;&nbsp;→&nbsp;&nbsp;
+					<div class="form-group">
+						<select class="form-control">
+							<c:forEach begin="2016" end="2018" step="1" var="val">
+								<option>${val}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control col-md-1">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select class="form-control col-md-1">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 
@@ -107,7 +143,7 @@
 		<hr>
 
 		<footer>
-			<%@ include file="attach/footer.jsp" %>
+			<%@ include file="attach/footer.jsp"%>
 		</footer>
 	</div>
 	<!-- /container -->
