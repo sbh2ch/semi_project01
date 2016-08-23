@@ -48,55 +48,11 @@
 						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
 					</div>
 					<div class="form-group">
-						<select class="form-control">
-							<c:forEach begin="2016" end="2018" step="1" var="val">
-								<option>${val}</option>
-							</c:forEach>
-						</select>
-					</div>
-					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
+						<input type="date" class="form-control" name="departDate">
 					</div>
 					&nbsp;&nbsp;→&nbsp;&nbsp;
 					<div class="form-group">
-						<select class="form-control">
-							<c:forEach begin="2016" end="2018" step="1" var="val">
-								<option>${val}</option>
-							</c:forEach>
-						</select>
-					</div>
-					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
+						<input type="date" class="form-control" name="destDate">
 					</div>
 					<div class="form-group">
 						<select class="form-control col-md-2">
@@ -105,6 +61,9 @@
 							</c:forEach>
 							<option>숙박인원 16+명</option>
 						</select>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="form-control btn btn-primary">숙소 검색</button>
 					</div>
 				</form>
 			</div>

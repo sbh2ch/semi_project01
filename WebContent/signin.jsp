@@ -88,7 +88,7 @@
 			<div class="checkbox"></div>
 			<button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-			<a class="btn btn-block btn-social btn-twitter" style="text-align: center;"> <span class="fa fa-twitter"></span> Sign in with Facebook
+			<a class="btn btn-block btn-social btn-facebook" style="text-align: center;"> <span class="fa fa-twitter"></span> Sign in with Facebook
 			</a>
 			<br>
 			<div class="fb-login-button" data-max-rows="2" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
