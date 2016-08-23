@@ -29,8 +29,10 @@
 
 			} else if (response.status === 'not_authorized') {
 
-			} else {
+			} else if (response.status === 'unknown') {
 				
+			} else {
+
 			}
 		});
 
@@ -53,6 +55,7 @@
 		js.src = "//connect.facebook.net/en_US/all.js";
 		ref.parentNode.insertBefore(js, ref);
 	}(document));
+	
 </script>
 
 
