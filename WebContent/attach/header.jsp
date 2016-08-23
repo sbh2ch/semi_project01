@@ -30,11 +30,7 @@
 			} else if (response.status === 'not_authorized') {
 
 			} else {
-				FB.logout(function(response) {
-					var URL = "/semiProject01/main?fb=N";
-					location.replace(URL);
-				});
-
+				
 			}
 		});
 
