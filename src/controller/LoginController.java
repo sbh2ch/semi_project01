@@ -43,10 +43,6 @@ public class LoginController extends HttpServlet {
 			}
 		}
 		
-		
-		System.out.println(name + " : " + email + " : " + fb);
-		
-		
 		res.sendRedirect("/semiProject01/main");
 	}
 

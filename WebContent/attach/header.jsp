@@ -30,7 +30,7 @@
 			} else if (response.status === 'not_authorized') {
 
 			} else if (response.status === 'unknown') {
-				
+
 			} else {
 
 			}
@@ -55,13 +55,6 @@
 		js.src = "//connect.facebook.net/en_US/all.js";
 		ref.parentNode.insertBefore(js, ref);
 	}(document));
-	
-	
-	function signnout(){
-		FB.logout();
-		var URL = "/semiProject01/login/logout";
-		location.replace(URL);
-	}
 </script>
 
 
@@ -86,7 +79,7 @@
 						<c:choose>
 							<c:when test="${not empty user.fb}">
 								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>
-								<a onclick="signnout()" class="btn btn-danger">FB out</a>
+								<a onclick="FB.logout()" class="btn btn-danger">FB out</a>
 							</c:when>
 							<c:otherwise>
 								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>
