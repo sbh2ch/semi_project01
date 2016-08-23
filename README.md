@@ -32,7 +32,7 @@ guest_state number(1) not null<br>
 <br>
 <h4>미리보기</h4>
 create table t86_1_host_preview(<br>
-email varchar2(20) primary key,<br>
+email varchar2(20),<br>
 host_num varchar2(30) primary key,<br>
 host_date date not null,<br>
 house_img varchar2(300),<br>
@@ -41,7 +41,7 @@ house_cost varchar2(20) not null<br>
 <br>
 <h4>위치 정보</h4>
 create table t86_1_host_location(<br>
-host_num varchar2(30) not null,<br>
+host_num varchar2(30) primary key,<br>
 nation varchar2(30) not null,<br>
 addr varchar2(30) not null,<br>
 zip_code varchar2(30) not null,<br>
