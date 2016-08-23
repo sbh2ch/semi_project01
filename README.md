@@ -1,5 +1,4 @@
 # semi_project01
-# Heo Modify
 
 <h2>테이블 구성</h2>
 
