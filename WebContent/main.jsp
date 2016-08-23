@@ -2,9 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%
-	//pageContext.setAttribute("user", "fb");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +66,6 @@
 	</div>
 
 	<div class="container">
-		<!-- Example row of columns -->
 		<div class="row">
 			<div class="col-md-4">
 				<img alt="" src="images/house1.jpg" width="90%" height="240px;">
@@ -88,20 +84,13 @@
 		</div>
 
 		<hr>
-<!-- ss -->
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
 	</div>
-	<!-- /container -->
-
-
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

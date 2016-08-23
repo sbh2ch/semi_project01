@@ -68,7 +68,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Ground BnB</a>
+			<a class="navbar-brand" href="/semiProject01/main">Ground BnB</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<form class="navbar-form navbar-right" action="/semiProject01/login/loginForm" accept-charset="utf-8" method="get">
@@ -78,7 +78,7 @@
 					</c:when>
 					<c:otherwise>
 						<c:choose>
-							<c:when test="${user != fb}">
+							<c:when test="${user != Y}">
 								<a style="text-decoration: none; color: white"><c:out value="${user}" />님 환영합니다.</a>
 								<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
 							</c:when>
