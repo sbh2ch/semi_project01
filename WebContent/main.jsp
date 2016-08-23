@@ -14,7 +14,6 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-
 <title>GroundBnB</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,13 +32,12 @@
 		</div>
 	</nav>
 
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Hello, world!</h1>
-			<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-			<p>
-				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
-			</p>
+	<div class="jumbotron" style="background: url('images/img2.jpg') 0px no-repeat;">
+		<div class="container" align="center">
+			<h1 style="color: white">Hello, world!</h1>
+			<br>
+			<br>
+			<br>
 		</div>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -50,7 +48,7 @@
 					<div class="form-group">
 						<input type="date" class="form-control" name="departDate">
 					</div>
-					&nbsp;&nbsp;→&nbsp;&nbsp;
+					&nbsp;&nbsp;<a style="color:white; font-size: 20px; font-weight: bold;">→</a>&nbsp;&nbsp;
 					<div class="form-group">
 						<input type="date" class="form-control" name="destDate">
 					</div>
@@ -74,25 +72,18 @@
 		<!-- Example row of columns -->
 		<div class="row">
 			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-				</p>
+				<img alt="" src="images/house1.jpg" width="90%" height="240px;">
+				<h3>깔끔한 방</h3>
+				<p>개인실, 숙박 인원 2명</p>
 			</div>
 			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-				</p>
+				<img alt="" src="images/house2.jpg" width="90%" height="240px;">
+				<h3>상현이형 방</h3>
+				<p>단체실, 숙박 인원 5명</p>
+			</div><div class="col-md-4">
+				<img alt="" src="images/house3.jpg" width="90%" height="240px;">
+				<h3>연결이형 방</h3>
+				<p>개인실, 숙박 인원 1명</p>
 			</div>
 		</div>
 
