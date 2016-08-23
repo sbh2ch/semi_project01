@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+
 <script>
 	window.fbAsyncInit = function() {
 		FB.init({
@@ -29,6 +30,10 @@
 			} else if (response.status === 'not_authorized') {
 
 			} else {
+				FB.logout(function(response) {
+					var URL = "/semiProject01/main?fb=N";
+					location.replace(URL);
+				});
 
 			}
 		});
@@ -55,8 +60,6 @@
 </script>
 
 
-
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -69,29 +72,21 @@
 			<a class="navbar-brand" href="#">Ground BnB</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
-			<form class="navbar-form navbar-right">
+			<form class="navbar-form navbar-right" action="/semiProject01/login/loginForm" accept-charset="utf-8" method="get">
 				<c:choose>
 					<c:when test="${empty user}">
-						<div class="form-group">
-							<input type="text" placeholder="Email" class="form-control">
-						</div>
-						<div class="form-group">
-							<input type="password" placeholder="Password" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-success">Sign in</button>
-						<button type="submit" class="btn btn-primary">Sign up</button>
-						<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+						<button type="submit" class="btn btn-success">Sign in / up</button>
 					</c:when>
 					<c:otherwise>
 						<c:choose>
-							<c:when test="${user.type != fb}">
-								<a style="text-decoration: none; color: white"><c:out value="${user}"/>님 환영합니다.</a>
+							<c:when test="${user != fb}">
+								<a style="text-decoration: none; color: white"><c:out value="${user}" />님 환영합니다.</a>
 								<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
 							</c:when>
 							<c:otherwise>
-								<a style="text-decoration: none; color: white"><c:out value="${user}"/>님 환영합니다.</a>
-								<button type="submit" class="btn btn-danger">Log out</button>							
-							</c:otherwise>						
+								<a style="text-decoration: none; color: white"><c:out value="${user}" />님 환영합니다.</a>
+								<button type="submit" class="btn btn-danger">Log out</button>
+							</c:otherwise>
 						</c:choose>
 					</c:otherwise>
 				</c:choose>
