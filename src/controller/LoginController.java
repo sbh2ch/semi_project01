@@ -17,7 +17,6 @@ public class LoginController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("@@@@@@@@@@@@@@@@2");
 		MemberDAO mDao = new MemberDAO();
 		MemberVO user = null;
 		HttpSession session = req.getSession();

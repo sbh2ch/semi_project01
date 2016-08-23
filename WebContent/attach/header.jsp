@@ -56,6 +56,12 @@
 		ref.parentNode.insertBefore(js, ref);
 	}(document));
 	
+	
+	function signnout(){
+		FB.logout();
+		var URL = "/semiProject01/login/logout";
+		location.replace(URL);
+	}
 </script>
 
 
@@ -78,13 +84,13 @@
 					</c:when>
 					<c:otherwise>
 						<c:choose>
-							<c:when test="${user != Y}">
-								<a style="text-decoration: none; color: white"><c:out value="${user}" />님 환영합니다.</a>
-								<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+							<c:when test="${not empty user.fb}">
+								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>
+								<a onclick="signnout()" class="btn btn-danger">FB out</a>
 							</c:when>
 							<c:otherwise>
-								<a style="text-decoration: none; color: white"><c:out value="${user}" />님 환영합니다.</a>
-								<button type="submit" class="btn btn-danger">Log out</button>
+								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>
+								<a type="submit" href="/semiProject01/login/logout" class="btn btn-danger">NM out</a>
 							</c:otherwise>
 						</c:choose>
 					</c:otherwise>
