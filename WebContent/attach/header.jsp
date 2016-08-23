@@ -2,12 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<<<<<<< HEAD
-sss
-=======
-
-
->>>>>>> 7b42c81cfb9c7b7496b14d5cb75b7fa61bfa3136
 <script>
 	window.fbAsyncInit = function() {
 		FB.init({
