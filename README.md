@@ -1,6 +1,7 @@
 # semi_project01
 
 <h2>테이블 구성</h2>
+<h2>테이블 구성1</h2>
 
 <h4>쪽지함</h4>
 create table t86_1_members_msg(<br>   
