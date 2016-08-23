@@ -7,8 +7,12 @@
 	<properties resource="config/mybatis/db.properties" />
 
 	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모 -->
+	<!-- member : 회원정보, location : (호스팅)위치정보, preview : (호스팅)미리보기, detail (호스팅)상세정보 -->
 	<typeAliases>
 		<typeAlias alias="member" type="member.MemberVO" />
+		<typeAlias alias="location" type="location.LocationVO" />
+		<typeAlias alias="preview" type="preview.PreviewVO" />
+		<typeAlias alias="detail" type="detail.DetailVO" />
 	</typeAliases>
 
 	<environments default="development">
