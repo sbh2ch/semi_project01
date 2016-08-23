@@ -1,6 +1,5 @@
 # semi_project01
 
-
 <h2>테이블 구성</h2>
 
 <h4>쪽지함</h4>
@@ -15,10 +14,13 @@ guest_receive varchar2(200)<br>
 <h4>회원</h4>
 create table t86_1_members(<br>
 email varchar2(20) primary key,<br>
-momber_no varchar2(20) not null,<br>
-password varchar2(20) not null,<br>
+no varchar2(20) not null,<br>
+password varchar2(20),<br>
 name varchar2(30) not null<br>
+fb varchar2(10) --페이스북 계정체크<br>
 );<br>
+<h5>회원 시퀀스</h5>
+create sequence seq_1_members<br>
 <br>
 <h4>회원(숙식정보)</h4>
 create table t86_1_house_content1(<br>

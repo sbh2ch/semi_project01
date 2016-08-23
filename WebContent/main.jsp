@@ -11,28 +11,18 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
 <title>GroundBnB</title>
 
-<!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
 <link href="css/jumbotron.css" rel="stylesheet">
 
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script src="js/ie-emulation-modes-warning.js"></script>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -40,10 +30,9 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<%@ include file="attach/header.jsp"%>
-			<!--/.navbar-collapse -->
 		</div>
 	</nav>
-	<!-- Main jumbotron for a primary marketing message or call to action -->
+
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Hello, world!</h1>
@@ -53,7 +42,7 @@
 			</p>
 		</div>
 		<div class="row">
-			<div class="col-md-8 col-md-offset-3">
+			<div class="col-md-8 col-md-offset-2">
 				<form class="form-inline">
 					<div class="form-group">
 						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
@@ -109,6 +98,14 @@
 							<option>5</option>
 						</select>
 					</div>
+					<div class="form-group">
+						<select class="form-control col-md-2">
+							<c:forEach begin="1" end="16" var="n">
+								<option>숙박인원 ${n}명</option>
+							</c:forEach>
+							<option>숙박인원 16+명</option>
+						</select>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -141,7 +138,7 @@
 		</div>
 
 		<hr>
-
+<!-- ss -->
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
