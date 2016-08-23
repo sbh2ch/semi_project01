@@ -37,7 +37,7 @@ host_num varchar2(30) primary key,<br>
 host_date date not null,<br>
 house_img varchar2(300),<br>
 house_desc varchar2(200),<br>
-house_cost varchar2(20) not null<br>
+house_cost number(20) not null<br>
 <br>
 <h4>위치 정보</h4>
 create table t86_1_host_location(<br>
