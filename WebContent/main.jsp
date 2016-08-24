@@ -68,16 +68,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<img alt="" src="images/house1.jpg" width="90%" height="240px;">
+				<img alt="" src="images/house1.jpg" width="90%" height="240px;" class="img-rounded">
 				<h3>깔끔한 방</h3>
 				<p>개인실, 숙박 인원 2명</p>
 			</div>
 			<div class="col-md-4">
-				<img alt="" src="images/house2.jpg" width="90%" height="240px;">
+				<img alt="" src="images/house2.jpg" width="90%" height="240px;" class="img-rounded">
 				<h3>상현이형 방</h3>
 				<p>단체실, 숙박 인원 5명</p>
 			</div><div class="col-md-4">
-				<img alt="" src="images/house3.jpg" width="90%" height="240px;">
+				<img alt="" src="images/house3.jpg" width="90%" height="240px;" class="img-rounded">
 				<h3>연결이형 방</h3>
 				<p>개인실, 숙박 인원 1명</p>
 			</div>

@@ -31,7 +31,7 @@ public class SignUpController extends HttpServlet {
 		}
 		user = new MemberVO(email, password, name, null);
 		mDao.insertNM(user);
-		
+
 		resp.sendRedirect("/semiProject01/main");
 	}
 
