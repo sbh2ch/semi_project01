@@ -18,16 +18,6 @@
 <link href="css/jumbotron.css" rel="stylesheet">
 
 <script src="js/ie-emulation-modes-warning.js"></script>
-<style>
-	.link_page>img{
-		transition: 2s;
-	}
-	.link_page>img:hover{
-		overflow: hidden;
-		transform: scale(1.005);
-		transition: 2s;
-	}
-</style>
 </head>
 
 <body>
