@@ -33,12 +33,15 @@ guest_state number(1) not null<br>
 create table t86_1_host_preview(<br>
 email varchar2(20),<br>
 host_no varchar2(30) primary key,<br>
-host_date date not null,<br>
+reg_date date not null,<br>
+start_date date not null,<br>
+end_date date not null,<br>
 img_path varchar2(300),<br>
 img_oriname varchar2(200),<br>
 img_realname varchar2(200),<br>
 house_desc varchar2(200),<br>
 house_cost number(20) not null<br>
+)<br>
 <br>
 <h4>위치 정보</h4>
 create table t86_1_host_location(<br>
