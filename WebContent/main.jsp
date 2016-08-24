@@ -2,37 +2,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%
-	//pageContext.setAttribute("user", "fb");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-
 <title>GroundBnB</title>
 
-<!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
 <link href="css/jumbotron.css" rel="stylesheet">
 
-<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script src="js/ie-emulation-modes-warning.js"></script>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -40,74 +26,39 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<%@ include file="attach/header.jsp"%>
-			<!--/.navbar-collapse -->
 		</div>
 	</nav>
-	<!-- Main jumbotron for a primary marketing message or call to action -->
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Hello, world!</h1>
-			<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-			<p>
-				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
-			</p>
+
+	<div class="jumbotron" style="background: url('images/img2.jpg') 0px no-repeat;">
+		<div class="container" align="center">
+			<h1 style="color: white">Hello, world!</h1>
+			<br>
+			<br>
+			<br>
 		</div>
 		<div class="row">
-			<div class="col-md-8 col-md-offset-3">
+			<div class="col-md-8 col-md-offset-2">
 				<form class="form-inline">
 					<div class="form-group">
 						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
 					</div>
 					<div class="form-group">
-						<select class="form-control">
-							<c:forEach begin="2016" end="2018" step="1" var="val">
-								<option>${val}</option>
+						<input type="date" class="form-control" name="departDate">
+					</div>
+					&nbsp;&nbsp;<a style="color:white; font-size: 20px; font-weight: bold;">→</a>&nbsp;&nbsp;
+					<div class="form-group">
+						<input type="date" class="form-control" name="destDate">
+					</div>
+					<div class="form-group">
+						<select class="form-control col-md-2">
+							<c:forEach begin="1" end="16" var="n">
+								<option>숙박인원 ${n}명</option>
 							</c:forEach>
+							<option>숙박인원 16+명</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
-					&nbsp;&nbsp;→&nbsp;&nbsp;
-					<div class="form-group">
-						<select class="form-control">
-							<c:forEach begin="2016" end="2018" step="1" var="val">
-								<option>${val}</option>
-							</c:forEach>
-						</select>
-					</div>
-					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<select class="form-control col-md-1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
+						<button type="submit" class="form-control btn btn-primary">숙소 검색</button>
 					</div>
 				</form>
 			</div>
@@ -115,46 +66,31 @@
 	</div>
 
 	<div class="container">
-		<!-- Example row of columns -->
 		<div class="row">
 			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-				</p>
+				<img alt="" src="images/house1.jpg" width="90%" height="240px;" class="img-rounded">
+				<h3>깔끔한 방</h3>
+				<p>개인실, 숙박 인원 2명</p>
 			</div>
 			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-				</p>
+				<img alt="" src="images/house2.jpg" width="90%" height="240px;" class="img-rounded">
+				<h3>상현이형 방</h3>
+				<p>단체실, 숙박 인원 5명</p>
+			</div><div class="col-md-4">
+				<img alt="" src="images/house3.jpg" width="90%" height="240px;" class="img-rounded">
+				<h3>연결이형 방</h3>
+				<p>개인실, 숙박 인원 1명</p>
 			</div>
 		</div>
 
 		<hr>
-
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
 	</div>
-	<!-- /container -->
-
-
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

@@ -32,12 +32,13 @@
 
 	<div class="container">
 		<!--  코드시작 -->
+		
 
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
 	</div>
-	<!-- dd -->
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
