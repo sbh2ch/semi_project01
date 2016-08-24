@@ -29,7 +29,7 @@
 		</div>
 	</nav>
 
-	<div class="jumbotron" style="background: url('images/img2.jpg') 0px no-repeat;">
+	<div class="jumbotron" style="background: url('images/img2.jpg'); background-size: 100%; ">
 		<div class="container" align="center">
 			<h1 style="color: white">Hello, world!</h1>
 			<br>
@@ -38,7 +38,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<form class="form-inline">
+				<form class="form-inline" style="text-align: center;">
 					<div class="form-group">
 						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
 					</div>
