@@ -4,12 +4,11 @@
 <h2>테이블 구성1</h2>
 
 <h4>쪽지함</h4>
-create table t86_1_members_msg(<br>   
-email varchar2(20) primary key,<br>
-host_send varchar2(200),<br>
-host_receive varchar2(200),<br>
-guest_send varchar2(200),<br>
-guest_receive varchar2(200)<br>
+create table t86_1_members_msg(<br>
+msg_no number primary key,<br>
+sender varchar2(50),<br>
+receiver varchar2(50),<br>
+content varchar2(2000)<br>
 );<br>
 <br>
 <h4>회원</h4>
