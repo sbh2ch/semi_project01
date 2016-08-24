@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPreview">
+	<resultMap type="preview" id="previewMap">
+		<result column="email" property="email" />
+		<result column="host_no" property="hostNo" />
+		<result column="reg_date" property="regDate" />
+		<result column="start_date" property="startDate" />
+		<result column="end_date" property="endDate" />
+		<result column="img_path" property="imgPath" />
+		<result column="img_oriname" property="imgOriName" />
+		<result column="img_realname" property="imgRealName" />
+		<result column="house_desc" property="houseDesc" />
+		<result column="house_cost" property="houseCost" />
+	</resultMap>
+
+	<insert id="insert" parameterType="preview">
+		<selectKey keyProperty="hostNo" order="BEFORE" resultType="int">
+			select seq_temp.nextval from dual
+		</selectKey>
+		insert into t86_1_host_preview values(#{email}, #{hostNo}, sysdate,#{startDate}, #{endDate}, #{imgPath}, #{imgOriName}, #{imgRealName}, #{houseDesc}, #{houseCost})
+	</insert>
+
+	<!-- 메인페이지 3개 출력용 쿼리 -->
+	<select id="selectThree" resultMap="previewMap">
+		select * from t86_1_host_preview where 3 >= rownum order by host_no desc
+	</select>
+
+	<!-- 하나 select -->
+	<select id="selectOne" parameterType="int" resultMap="previewMap">
+		select * from t86_1_host_preview where host_no = #{hostNo}
+	</select>
+	
+	<!-- 전체 select -->
+	<select id="selectAll" resultMap="previewMap">
+		select * from t86_1_host_preview order by host_no desc
+	</select>
+
+	<delete id="delete" parameterType="int">
+		delete t86_1_host_preview where host_no = #{hostNo}
+	</delete>
+
+	<update id="update" parameterType="preview">
+		update t86_1_host_preview 
+		set reg_date = sysdate, 
+			start_date = #{startDate}, 
+			end_date = #{endDate}, 
+			img_path = #{imgPath}, 
+			img_oriname = #{imgOriName}, 
+			img_realname = #{imgRealName}, 
+			house_desc = #{houseDesc}, 
+			house_cost = #{houseCost} 
+		where host_no = #{hostNo}
+	</update>
+</mapper>
