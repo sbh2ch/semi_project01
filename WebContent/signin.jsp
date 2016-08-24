@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Sign in</title>
+<title>GroundBnB</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -83,8 +83,8 @@
 
 		<form class="form-signin" action="/semiProject01/login/login" method="post">
 			<h2 class="form-signin-heading">Sign in to GroundBnB</h2>
-			<label for="inputEmail" class="sr-only">Email address</label> <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> <label for="inputPassword" class="sr-only">Password</label> <input type="password"
-				id="inputPassword" class="form-control" placeholder="Password" required>
+			<label for="inputEmail" class="sr-only">Email address</label> <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> <label for="inputPassword" class="sr-only">Password</label> 
+			<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 			<div class="checkbox"></div>
 			<button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
 			<a class="btn btn-lg btn-primary btn-block" href="/semiProject01/signUpForm">Sign up</a>

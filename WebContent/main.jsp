@@ -83,7 +83,7 @@
 			</div>
 		</div>
 
-		<hr>
+		
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
