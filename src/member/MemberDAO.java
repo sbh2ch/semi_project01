@@ -26,11 +26,17 @@ public class MemberDAO {
 		session.commit();
 	}
 
+	/**
+	 * 페북 회원가입
+	 */
 	public void insertFB(MemberVO m) {
 		session.insert("myMember.insertFB", m);
 		session.commit();
 	}
 
+	/**
+	 * 일반 회원가입
+	 */
 	public void insertNM(MemberVO m) {
 		session.insert("myMember.insertNM", m);
 		session.commit();

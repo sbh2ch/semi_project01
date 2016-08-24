@@ -28,7 +28,7 @@
 			} else if (response.status === 'not_authorized') {
 
 			} else if (response.status === 'unknown') {
-				
+
 			} else {
 
 			}
@@ -42,6 +42,7 @@
 			document.location.reload();
 		});
 	};
+
 	(function(d) {
 		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
 		if (d.getElementById(id)) {
@@ -53,7 +54,17 @@
 		js.src = "//connect.facebook.net/en_US/all.js";
 		ref.parentNode.insertBefore(js, ref);
 	}(document));
-	
+
+	function fb_logout() {
+		FB.logout(function(response) {
+			// user is now logged out
+		});
+		
+		setTimeout(function(){
+			var URL = "/semiProject01/login/logout";
+			location.replace(URL);
+		}, 500);
+	}
 </script>
 
 
@@ -66,7 +77,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Ground BnB</a>
+			<a class="navbar-brand" href="/semiProject01/main">Ground BnB</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<form class="navbar-form navbar-right" action="/semiProject01/login/loginForm" accept-charset="utf-8" method="get">
@@ -76,13 +87,35 @@
 					</c:when>
 					<c:otherwise>
 						<c:choose>
-							<c:when test="${user != fb}">
-								<a style="text-decoration: none; color: white"><c:out value="${user}" />님 환영합니다.</a>
-								<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+							<c:when test="${not empty user.fb}">
+								<ul class="nav nav-pills" role="tablist">
+									<li role="presentation" class="active">
+										<a onclick="fb_logout()" class="btn btn-primary">FB out</a>
+									</li>
+									<li role="presentation" class="dropdown">
+										<a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> ${user.name} <span class="caret"></span>
+										</a>
+										<ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Action</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Another action</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Something else here</a>
+											</li>
+											<li role="presentation" class="divider"></li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Separated link</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
 							</c:when>
 							<c:otherwise>
-								<a style="text-decoration: none; color: white"><c:out value="${user}" />님 환영합니다.</a>
-								<button type="submit" class="btn btn-danger">Log out</button>
+								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>
+								<a type="submit" href="/semiProject01/login/logout" class="btn btn-danger">NM out</a>
 							</c:otherwise>
 						</c:choose>
 					</c:otherwise>

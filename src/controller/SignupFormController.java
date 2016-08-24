@@ -9,12 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/main")
-public class MainController extends HttpServlet {
+@WebServlet("/signUpForm")
+public class SignupFormController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("main.jsp");
+		String msg = req.getParameter("msg");
+		if(msg != null)
+			req.setAttribute("msg", msg);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("signupForm.jsp");
 		rd.forward(req, resp);
 	}
+	
 }

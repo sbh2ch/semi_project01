@@ -17,8 +17,7 @@ public class MyAppSqlConfig {
 			sqlMapper = sqlFactory.openSession();
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RuntimeException(
-					"Error initializing MyAppSqlConfig class. Cause: " + e);
+			throw new RuntimeException("Error initializing MyAppSqlConfig class. Cause: " + e);
 		}
 	}
 

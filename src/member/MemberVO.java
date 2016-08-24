@@ -1,5 +1,15 @@
 package member;
 
+/**
+ * @author son
+ * 
+ * email : Primary Key|| normal case : email, facebook : code
+ * no : 번호
+ * password: 비번 페북일시 null
+ * name : 이름(중복가능)
+ * fb : 페북일시 Y 아닐시 null
+ *
+ */
 public class MemberVO {
 	private String email;
 	private int no;
@@ -9,7 +19,6 @@ public class MemberVO {
 
 	public MemberVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public MemberVO(String email, String password, String name, String fb) {

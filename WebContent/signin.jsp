@@ -45,7 +45,7 @@
 
 							console.log(user.id, user.name);
 
-							var URL = "/semiProject01/main?name=" + user.name + "&email=" + user.id + "&fb=Y";
+							var URL = "/semiProject01/login/login?name=" + user.name + "&email=" + user.id + "&fb=Y";
 							location.replace(URL);
 						}
 					});
@@ -81,21 +81,18 @@
 
 	<div class="container">
 
-		<form class="form-signin">
+		<form class="form-signin" action="/semiProject01/login/login" method="post">
 			<h2 class="form-signin-heading">Sign in to GroundBnB</h2>
 			<label for="inputEmail" class="sr-only">Email address</label> <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> <label for="inputPassword" class="sr-only">Password</label> <input type="password"
 				id="inputPassword" class="form-control" placeholder="Password" required>
 			<div class="checkbox"></div>
 			<button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-			<a class="btn btn-block btn-social btn-facebook" style="text-align: center;"> <span class="fa fa-twitter"></span> Sign in with Facebook
-			</a>
+			<a class="btn btn-lg btn-primary btn-block" href="/semiProject01/signUpForm">Sign up</a>
 			<br>
 			<div class="fb-login-button" data-max-rows="2" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+			<br>
 		</form>
-
-		<p>사용자정보 출력</p>
-		<div align="left">
+		<div align="left" style="display: hidden">
 			<img id="image" />
 			<div id="name"></div>
 			<div id="id"></div>
