@@ -27,11 +27,10 @@ public class UpdatePasswordController extends HttpServlet {
 		if (!user.getPassword().equals(oldPassword) || newPassword.length() < 5) {
 			req.setAttribute("msg", "Invaild password");
 			rd.forward(req, resp);
-		}else {
-			
+		} else {
 			user.setPassword(newPassword);
 			mDao.updateNM(user);
-			
+
 			rd.forward(req, resp);
 		}
 	}

@@ -41,7 +41,7 @@ public class LoginController extends HttpServlet {
 				} else {
 					res.sendRedirect("/semiProject01/login/loginForm");
 				}
-			} else{
+			} else {
 				res.sendRedirect("/semiProject01/login/loginForm");
 			}
 		}

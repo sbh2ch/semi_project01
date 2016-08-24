@@ -19,15 +19,11 @@ public class UpdateUsernameController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MemberDAO mDao = new MemberDAO();
 		MemberVO user = (MemberVO) req.getSession().getAttribute("user");
-
 		String newName = req.getParameter("newname");
 
 		RequestDispatcher rd = req.getRequestDispatcher("/modAccount.jsp");
-
 		
 		user.setName(newName);
-		
-		System.out.println(user.getEmail()+" : "+user.getPassword()+" : "+user.getName()+" : "+user.getFb());
 		
 		mDao.updateNM(user);
 		req.getSession().invalidate();

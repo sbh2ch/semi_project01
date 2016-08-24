@@ -1,6 +1,5 @@
 package preview;
 
-public class PreviewDAO
-{
-
+public class PreviewDAO {
+	
 }

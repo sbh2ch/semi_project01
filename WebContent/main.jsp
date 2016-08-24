@@ -82,8 +82,6 @@
 				<p>개인실, 숙박 인원 1명</p>
 			</div>
 		</div>
-
-		
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>

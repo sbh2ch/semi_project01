@@ -19,7 +19,6 @@ public class DeleteAccountController extends HttpServlet {
 		MemberDAO mDao = new MemberDAO();
 		MemberVO user = (MemberVO) req.getSession().getAttribute("user");
 
-		
 		mDao.delete(user.getEmail());
 		resp.sendRedirect("/semiProject01/main");
 	}
