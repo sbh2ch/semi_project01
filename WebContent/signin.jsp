@@ -88,14 +88,11 @@
 			<div class="checkbox"></div>
 			<button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
 			<a class="btn btn-lg btn-primary btn-block" href="/semiProject01/signUpForm">Sign up</a>
-			<a class="btn btn-block btn-social btn-facebook" style="text-align: center;"> <span class="fa fa-twitter"></span> Sign in with Facebook
-			</a>
 			<br>
 			<div class="fb-login-button" data-max-rows="2" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+			<br>
 		</form>
-
-		<p>사용자정보 출력</p>
-		<div align="left">
+		<div align="left" style="display: hidden">
 			<img id="image" />
 			<div id="name"></div>
 			<div id="id"></div>

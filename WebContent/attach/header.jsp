@@ -44,6 +44,7 @@
 			document.location.reload();
 		});
 	};
+
 	(function(d) {
 		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
 		if (d.getElementById(id)) {
@@ -55,6 +56,17 @@
 		js.src = "//connect.facebook.net/en_US/all.js";
 		ref.parentNode.insertBefore(js, ref);
 	}(document));
+
+	function fb_logout() {
+		FB.logout(function(response) {
+			// user is now logged out
+		});
+		
+		setTimeout(function(){
+			var URL = "/semiProject01/login/logout";
+			location.replace(URL);
+		}, 500);
+	}
 </script>
 
 
@@ -78,8 +90,30 @@
 					<c:otherwise>
 						<c:choose>
 							<c:when test="${not empty user.fb}">
-								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>
-								<a onclick="FB.logout()" class="btn btn-danger">FB out</a>
+								<ul class="nav nav-pills" role="tablist">
+									<li role="presentation" class="active">
+										<a onclick="fb_logout()" class="btn btn-primary">FB out</a>
+									</li>
+									<li role="presentation" class="dropdown">
+										<a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> ${user.name} <span class="caret"></span>
+										</a>
+										<ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Action</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Another action</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Something else here</a>
+											</li>
+											<li role="presentation" class="divider"></li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Separated link</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
 							</c:when>
 							<c:otherwise>
 								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>

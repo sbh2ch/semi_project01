@@ -18,5 +18,4 @@ public class LogoutController extends HttpServlet{
 
 		resp.sendRedirect("/semiProject01/main");
 	}
-	
 }

@@ -8,7 +8,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -39,19 +38,19 @@ body{
 					<br>
 					<br>
 					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
 					<div style="background: url('images/gray.png') 0px repeat; display: inline-block">
 						<br>
 						<h1 style="color: white; padding: 0 100px;">지금 GroundBnB에 가입하세요!</h1>
 						<br>
 					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
 					<br>
 					<br>
 					<br>
