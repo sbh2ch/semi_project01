@@ -18,7 +18,16 @@
 <link href="css/jumbotron.css" rel="stylesheet">
 
 <script src="js/ie-emulation-modes-warning.js"></script>
-
+<style>
+	.link_page>img{
+		transition: 2s;
+	}
+	.link_page>img:hover{
+		overflow: hidden;
+		transform: scale(1.005);
+		transition: 2s;
+	}
+</style>
 </head>
 
 <body>
@@ -67,20 +76,14 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<img alt="" src="images/house1.jpg" width="90%" height="240px;" class="img-rounded">
-				<h3>깔끔한 방</h3>
-				<p>개인실, 숙박 인원 2명</p>
-			</div>
-			<div class="col-md-4">
-				<img alt="" src="images/house2.jpg" width="90%" height="240px;" class="img-rounded">
-				<h3>상현이형 방</h3>
-				<p>단체실, 숙박 인원 5명</p>
-			</div><div class="col-md-4">
-				<img alt="" src="images/house3.jpg" width="90%" height="240px;" class="img-rounded">
-				<h3>연결이형 방</h3>
-				<p>개인실, 숙박 인원 1명</p>
-			</div>
+			<c:forEach var="p" items="${pList}">
+				<fmt:formatDate value="${p.regDate}" pattern="yyyy.MM.dd" var="regDate"/>
+				<div class="col-md-4 link_page">
+					<a href="/semiProject01/main"><img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" height="240px;" class="img-rounded"></a>
+					<h3>${p.houseDesc}</h3>
+					<span>${p.houseCost}₩/day</span><span style="padding-left:110px">${regDate}</span>
+				</div>
+			</c:forEach>
 		</div>
 		<footer>
 			<%@ include file="attach/footer.jsp"%>

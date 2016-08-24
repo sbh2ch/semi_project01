@@ -24,7 +24,7 @@
 
 	<!-- 메인페이지 3개 출력용 쿼리 -->
 	<select id="selectThree" resultMap="previewMap">
-		select * from t86_1_host_preview where 3 >= rownum order by host_no desc
+		select * from t86_1_host_preview where 3 >= rownum order by reg_date desc
 	</select>
 
 	<!-- 하나 select -->

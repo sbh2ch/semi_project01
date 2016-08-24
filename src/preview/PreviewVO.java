@@ -62,8 +62,6 @@ public class PreviewVO {
 		this.houseDesc = houseDesc;
 		this.houseCost = houseCost;
 	}
-
-
 	public Date getRegDate() {
 		return regDate;
 	}
