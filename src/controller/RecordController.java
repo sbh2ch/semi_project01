@@ -15,24 +15,18 @@ import status.StatusDAO;
 import status.StatusVO;
 
 @WebServlet("/record")
-public class RecordController extends HttpServlet{
+public class RecordController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		MemberVO user = (MemberVO)req.getSession().getAttribute("user");
+		MemberVO user = (MemberVO) req.getSession().getAttribute("user");
 		StatusDAO sDao = new StatusDAO();
-		List<StatusVO> gList = sDao.joinGuest("sbh2ch@nate.com");
-		List<StatusVO> hList = sDao.joinHost("sbh2ch@nate.com");
-		
-		System.out.println(hList.get(0));
-		
+		List<StatusVO> gList = sDao.joinGuest(user.getEmail());
+		List<StatusVO> hList = sDao.joinHost(user.getEmail());
 		req.setAttribute("gList", gList);
 		req.setAttribute("hList", hList);
-		
-		
-		
+
 		RequestDispatcher rd = req.getRequestDispatcher("record.jsp");
 		rd.forward(req, resp);
-		
 	}
 }

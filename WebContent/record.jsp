@@ -42,15 +42,26 @@
 						</c:if>
 
 						<c:forEach var="h" items="${hList}">
+							<fmt:formatDate value="${h.startDate}" pattern="yy.MM.dd" var="startDate"/>
+							<fmt:formatDate value="${h.endDate}" pattern="yy.MM.dd" var="endDate"/>
 							<div class="col-md-12">
-								<div class="col-md-5">
-									<img alt="" src="/semiProject01/down?path=${h.imgPath}/&realName=${h.imgRealName}&draw=Y" width="100%" class="img-rounded">
-									<br>
-									<br>
+								<div class="col-md-6">
+									<img alt="" src="/semiProject01/down?path=${h.imgPath}/&realName=${h.imgRealName}&draw=Y" width="100%" class="img-rounded"> <br> <br>
 								</div>
-								<div class="col-md-7">
+								<div class="col-md-6">
 									<h4>${h.houseDesc}</h4>
 									<p>
+										<span style="font-weight: bold;">호스팅 가능일</span><br> 
+										${startDate} - ${endDate}<br>
+										<c:if test="${h.hostingStatus == 'W'}">
+											<h4><span class="label label-info">신청 대기</span></h4>
+										</c:if>
+										<c:if test="${h.hostingStatus == 'A'}">
+											<h4><span class="label label-warning">응답 대기중</span></h4>
+										</c:if>
+										<c:if test="${h.hostingStatus == 'C'}">
+											<h4><span class="label label-default">완료</span></h4>
+										</c:if>
 										<a class="btn btn-xs btn-default" href="/semiProject01/main" role="button">상세보기</a>
 									</p>
 								</div>
@@ -69,7 +80,26 @@
 							게스팅 내역이 없습니다.
 						</c:if>
 						<c:forEach var="g" items="${gList}">
-
+							<fmt:formatDate value="${g.checkIn}" pattern="yy.MM.dd" var="startDate"/>
+							<fmt:formatDate value="${g.checkOut}" pattern="yy.MM.dd" var="endDate"/>
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<img alt="" src="/semiProject01/down?path=${g.imgPath}/&realName=${g.imgRealName}&draw=Y" width="100%" class="img-rounded"> <br> <br>
+								</div>
+								<div class="col-md-6">
+									<h4>${g.houseDesc}</h4>
+									<p>
+										<span style="font-weight: bold;">게스팅 예약일</span><br>${startDate} - ${endDate}<br>
+										<c:if test="${g.hostingStatus == 'A'}">
+											<h4><span class="label label-warning">응답 대기중</span></h4>
+										</c:if>
+										<c:if test="${g.hostingStatus == 'C'}">
+											<h4><span class="label label-default">완료</span></h4>
+										</c:if>
+										<a class="btn btn-xs btn-default" href="/semiProject01/main" role="button">상세보기</a>
+									</p>
+								</div>
+							</div>
 						</c:forEach>
 					</div>
 				</div>

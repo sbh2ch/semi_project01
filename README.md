@@ -62,7 +62,6 @@ create table t86_1_host_detail(<br>
 host_no number primary key,<br>
 house_type varchar2(30) not null,<br>
 room_type varchar2(30) not null<br>
-host_state number(1) not null,<br>
 house_capacity number(10) not null,<br>
 house_room number(10) not null,<br>
 house_bed number(10) not null,<br>
