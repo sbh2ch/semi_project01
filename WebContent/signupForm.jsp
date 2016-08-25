@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Sign up</title>
+<title>GroundBnB</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 

@@ -18,6 +18,7 @@ public class MemberDAO {
 	}
 
 	public MemberVO selectOne(String email) {
+		System.out.println(email);
 		return session.selectOne("myMember.selectOne", email);
 	}
 
@@ -39,6 +40,11 @@ public class MemberDAO {
 	 */
 	public void insertNM(MemberVO m) {
 		session.insert("myMember.insertNM", m);
+		session.commit();
+	}
+	
+	public void updateNM(MemberVO m){
+		session.update("myMember.updateNM", m);
 		session.commit();
 	}
 }
