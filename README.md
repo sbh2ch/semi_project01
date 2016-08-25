@@ -22,11 +22,14 @@ fb varchar2(10) --페이스북 계정체크<br>
 <h5>회원 시퀀스</h5>
 create sequence seq_1_members<br>
 <br>
-<h4>게스팅 현황</h4>
-create table t86_1_member_guesting(<br>
-email varchar2(20) primary key,<br>
-host_no varchar2(30) not null,<br>
-guest_state number(1) not null<br>
+<h4>현황</h4>
+create table t86_1_hosting_status(<br>
+host_no number primary key,<br>
+host_email varchar2(50),<br>
+guest_email varchar2(50),<br>
+start_date date,<br>
+end_date date,<br>
+hosting_status varchar2(5)<br>
 );<br>
 <br>
 <h4>미리보기</h4>
