@@ -66,6 +66,7 @@ host_state number(1) not null,<br>
 house_capacity number(10) not null,<br>
 house_room number(10) not null,<br>
 house_bed number(10) not null,<br>
-house_bath number(10) not null<br>
+house_bath number(10) not null,<br>
+house_detail varchar2(4000)<br>
 );<br>
 <br>
