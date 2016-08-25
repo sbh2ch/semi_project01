@@ -69,9 +69,10 @@
 			<c:forEach var="p" items="${pList}">
 				<fmt:formatDate value="${p.regDate}" pattern="yyyy.MM.dd" var="regDate"/>
 				<div class="col-md-4 link_page">
-					<a href="/semiProject01/main"><img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" height="240px;" class="img-rounded"></a>
+					<img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" height="240px;" class="img-rounded">
 					<h3>${p.houseDesc}</h3>
-					<span>${p.houseCost}₩/day</span><span style="padding-left:110px">${regDate}</span>
+					<span>${p.houseCost}₩/day</span><span style="padding-left:110px">${regDate}</span><br><br>
+					<p><a class="btn btn-default" href="/semiProject01/main" role="button">상세보기&raquo;</a></p>
 				</div>
 			</c:forEach>
 		</div>
