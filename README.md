@@ -59,7 +59,7 @@ Y_point varchar2(30) not null<br>
 <br>
 <h4>상세정보</h4>
 create table t86_1_host_detail(<br>
-host_no varchar2(30) primary key,<br>
+host_no number primary key,<br>
 house_type varchar2(30) not null,<br>
 room_type varchar2(30) not null<br>
 host_state number(1) not null,<br>
@@ -70,3 +70,12 @@ house_bath number(10) not null,<br>
 house_detail varchar2(4000)<br>
 );<br>
 <br>
+<h4>댓글</h4>
+create table t86_1_reply(<br>
+reply_no number primary key,<br>
+host_no number,<br>
+name varchar2(50),<br>
+email varchar2(50),<br>
+content varchar2(1000),<br>
+reg_date date<br>
+);<br>
