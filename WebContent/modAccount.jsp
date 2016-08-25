@@ -55,7 +55,7 @@
 							<label for="newpw">New password</label> 
 							<br>
 							<input type="password" name="newpw" class="form-control" id="newpw" width="50%" required>
-							<br>
+							<h6 style="color: gray;">Use at least four characters.</h6>
 							<br>
 							<input type="submit" class="form-control btn btn-primary" value="Update password">
 						</div>

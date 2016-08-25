@@ -26,7 +26,6 @@ public class UpdateUsernameController extends HttpServlet {
 		user.setName(newName);
 		
 		mDao.updateNM(user);
-		req.getSession().invalidate();
 		rd.forward(req, resp);
 	}
 }

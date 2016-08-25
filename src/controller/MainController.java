@@ -21,7 +21,6 @@ public class MainController extends HttpServlet {
 		PreviewDAO pDao = new PreviewDAO();
 		List<PreviewVO> pList = pDao.selectThree();
 		req.setAttribute("pList", pList);
-		System.out.println(pList.get(0).getImgPath());
 		
 		RequestDispatcher rd = req.getRequestDispatcher("main.jsp");
 		rd.forward(req, resp);

@@ -104,7 +104,7 @@
 										<a role="menuitem" tabindex="-1" href="#">호스팅하기</a>
 									</li>
 									<li role="presentation">
-										<a role="menuitem" tabindex="-1" href="#">알림판</a>
+										<a role="menuitem" tabindex="-1" href="#">내 호스팅</a>
 									</li>
 									<li role="presentation">
 										<a role="menuitem" tabindex="-1" href="#">이용내역</a>
