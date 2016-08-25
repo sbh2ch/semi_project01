@@ -35,7 +35,7 @@ hosting_status varchar2(5)<br>
 <h4>미리보기</h4>
 create table t86_1_host_preview(<br>
 email varchar2(20),<br>
-host_no varchar2(30) primary key,<br>
+host_no number primary key,<br>
 reg_date date not null,<br>
 start_date date not null,<br>
 end_date date not null,<br>
@@ -48,7 +48,7 @@ house_cost number(20) not null<br>
 <br>
 <h4>위치 정보</h4>
 create table t86_1_host_location(<br>
-host_no varchar2(30) primary key,<br>
+host_no number primary key,<br>
 nation varchar2(30) not null,<br>
 addr varchar2(30) not null,<br>
 zip_code varchar2(30) not null,<br>
