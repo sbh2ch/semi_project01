@@ -13,7 +13,6 @@ public class LogoutController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("로그아웃 실행");
 		req.getSession().invalidate();
 
 		resp.sendRedirect("/semiProject01/main");
