@@ -16,7 +16,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <link href="css/jumbotron.css" rel="stylesheet">
-
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="js/ie-emulation-modes-warning.js"></script>
 </head>
 
@@ -28,7 +28,7 @@
 		</div>
 	</nav>
 
-	<div class="jumbotron" style="background: url('images/img2.jpg'); background-size: 100%; ">
+	<div class="jumbotron" style="background: url('images/img2.jpg') 0px no-repeat;">
 		<div class="container" align="center">
 			<h1 style="color: white">Hello, world!</h1>
 			<br>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<form class="form-inline" style="text-align: center;">
+				<form class="form-inline">
 					<div class="form-group">
 						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
 					</div>
@@ -69,9 +69,10 @@
 			<c:forEach var="p" items="${pList}">
 				<fmt:formatDate value="${p.regDate}" pattern="yyyy.MM.dd" var="regDate"/>
 				<div class="col-md-4 link_page">
-					<a href="/semiProject01/main"><img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" height="240px;" class="img-rounded"></a>
+					<img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" class="img-rounded">
 					<h3>${p.houseDesc}</h3>
-					<span>${p.houseCost}₩/day</span><span style="padding-left:110px">${regDate}</span>
+					<span>${p.houseCost}<span class="fa fa-krw" aria-hidden="true"></span> / day</span><span style="padding-left:110px">${regDate}</span><br><br>
+					<p><a class="btn btn-default" href="/semiProject01/detail?hostNo=${p.hostNo}" role="button">상세보기&raquo;</a></p>
 				</div>
 			</c:forEach>
 		</div>

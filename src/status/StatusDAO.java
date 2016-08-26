@@ -65,4 +65,12 @@ public class StatusDAO {
 		session.delete("myStatus.delete", hostNo);
 		session.commit();
 	}
+	
+	public List<StatusVO> joinGuest(String guestEmail){
+		return session.selectList("myStatus.joinGuest", guestEmail);
+	}
+	
+	public List<StatusVO> joinHost(String hostEmail){
+		return session.selectList("myStatus.joinHost", hostEmail);
+	}
 }

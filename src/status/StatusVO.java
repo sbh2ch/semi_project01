@@ -5,12 +5,12 @@ import java.util.Date;
 /**
  * @author son
  *
- * hostNo : 글번호
- * hostEmail : 작성자
- * guestEmail : 신청자
- * startDate : 신청날짜 (시작)
- * endDate : 신청날짜(종료)
- * hostingStatus : 현재 글의 상태
+ *         hostNo : 글번호
+ *         hostEmail : 작성자
+ *         guestEmail : 신청자
+ *         checkIn : 신청날짜 (시작)
+ *         checkOut : 신청날짜(종료)
+ *         hostingStatus : 현재 글의 상태
  *         W -> (wait)게스팅 신청대기
  *         A -> (accept)게스팅 신청 후 호스트의 수락대기상태
  *         C -> (complete)거래종료
@@ -19,9 +19,17 @@ public class StatusVO {
 	private int hostNo;
 	private String hostEmail;
 	private String guestEmail;
+	private Date checkIn;
+	private Date checkOut;
+	private String hostingStatus;
+	private Date regDate;
 	private Date startDate;
 	private Date endDate;
-	private String hostingStatus;
+	private String imgPath;
+	private String imgOriName;
+	private String imgRealName;
+	private String houseDesc;
+	private int houseCost;
 
 	public StatusVO() {
 		super();
@@ -40,12 +48,12 @@ public class StatusVO {
 	/*
 	 * 게스트가 신청후 업데이트 생성자
 	 */
-	public StatusVO(int hostNo, String guestEmail, Date startDate, Date endDate) {
+	public StatusVO(int hostNo, String guestEmail, Date checkIn, Date checkOut) {
 		super();
 		this.hostNo = hostNo;
 		this.guestEmail = guestEmail;
-		this.startDate = startDate;
-		this.endDate = endDate;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
 		this.hostingStatus = "A";
 	}
 
@@ -57,7 +65,71 @@ public class StatusVO {
 		this.hostNo = hostNo;
 		this.hostingStatus = status;
 	}
-	
+
+	public Date getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+
+	public String getImgOriName() {
+		return imgOriName;
+	}
+
+	public void setImgOriName(String imgOriName) {
+		this.imgOriName = imgOriName;
+	}
+
+	public String getImgRealName() {
+		return imgRealName;
+	}
+
+	public void setImgRealName(String imgRealName) {
+		this.imgRealName = imgRealName;
+	}
+
+	public String getHouseDesc() {
+		return houseDesc;
+	}
+
+	public void setHouseDesc(String houseDesc) {
+		this.houseDesc = houseDesc;
+	}
+
+	public int getHouseCost() {
+		return houseCost;
+	}
+
+	public void setHouseCost(int houseCost) {
+		this.houseCost = houseCost;
+	}
+
 	public int getHostNo() {
 		return hostNo;
 	}
@@ -82,20 +154,20 @@ public class StatusVO {
 		this.guestEmail = guestEmail;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public Date getCheckIn() {
+		return checkIn;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setCheckIn(Date checkIn) {
+		this.checkIn = checkIn;
 	}
 
-	public Date getEndDate() {
-		return endDate;
+	public Date getCheckOut() {
+		return checkOut;
 	}
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setCheckOut(Date checkOut) {
+		this.checkOut = checkOut;
 	}
 
 	public String getHostingStatus() {
@@ -108,9 +180,7 @@ public class StatusVO {
 
 	@Override
 	public String toString() {
-		return "StatusVO [hostNo=" + hostNo + ", hostEmail=" + hostEmail + ", guestEmail=" + guestEmail + ", startDate=" + startDate + ", endDate=" + endDate + ", hostingStatus=" + hostingStatus + "]";
+		return "StatusVO [hostNo=" + hostNo + ", hostEmail=" + hostEmail + ", guestEmail=" + guestEmail + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", hostingStatus=" + hostingStatus + ", regDate=" + regDate + ", startDate=" + startDate + ", endDate=" + endDate + ", imgPath=" + imgPath + ", imgOriName=" + imgOriName + ", imgRealName=" + imgRealName + ", houseDesc=" + houseDesc + ", houseCost=" + houseCost + "]";
 	}
 	
-	
-
 }

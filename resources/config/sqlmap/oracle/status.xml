@@ -6,8 +6,8 @@
 		<result column="host_no" property="hostNo" />
 		<result column="host_email" property="hostEmail" />
 		<result column="guest_email" property="guestEmail" />
-		<result column="start_date" property="startDate" />
-		<result column="end_date" property="endDate" />
+		<result column="start_date" property="checkIn" />
+		<result column="end_date" property="checkOut" />
 		<result column="hosting_status" property="hostingStatus" />
 	</resultMap>
 
@@ -18,7 +18,7 @@
 	</insert>
 
 	<update id="hostingRequest" parameterType="status">
-		update t86_1_hosting_status set guest_email = #{guestEmail}, start_date = #{startDate}, end_date = #{endDate} , hosting_status = #{hostingStatus} where host_no = #{hostNo}
+		update t86_1_hosting_status set guest_email = #{guestEmail}, start_date = #{checkIn}, end_date = #{checkOut} , hosting_status = #{hostingStatus} where host_no = #{hostNo}
 	</update>
 
 	<update id="accept" parameterType="status">
@@ -44,4 +44,48 @@
 	<delete id="delete" parameterType="int">
 		delete t86_1_hosting_status where host_no = #{hostNo}
 	</delete>
+	
+	<select id="joinHost" parameterType="string" resultType="status">
+		select 
+			s.HOST_NO as hostNo, 
+			s.HOST_EMAIL as hostEmail, 
+			s.GUEST_EMAIL as guestEmail, 
+			s.START_DATE as checkIn, 
+			s.END_DATE as checkOut, 
+			s.HOSTING_STATUS as hostingStatus, 
+			p.REG_DATE as regDate, 
+			p.START_DATE as startDate, 
+			p.END_DATE as endDate, 
+			p.IMG_PATH as imgPath, 
+			p.IMG_ORINAME as imgOriName, 
+			p.IMG_REALNAME as imgRealName, 
+			p.HOUSE_DESC as houseDesc, 
+			p.HOUSE_COST as houseCost 
+		from 
+			T86_1_HOST_PREVIEW p inner join T86_1_HOSTING_STATUS s 
+		on p.HOST_NO = s.HOST_NO
+		where s.host_email = #{hostEmail}
+	</select>
+	
+	<select id="joinGuest" parameterType="string" resultType="status">
+		select 
+			s.HOST_NO as hostNo, 
+			s.HOST_EMAIL as hostEmail, 
+			s.GUEST_EMAIL as guestEmail, 
+			s.START_DATE as checkIn, 
+			s.END_DATE as checkOut, 
+			s.HOSTING_STATUS as hostingStatus, 
+			p.REG_DATE as regDate, 
+			p.START_DATE as startDate, 
+			p.END_DATE as endDate, 
+			p.IMG_PATH as imgPath, 
+			p.IMG_ORINAME as imgOriName, 
+			p.IMG_REALNAME as imgRealName, 
+			p.HOUSE_DESC as houseDesc, 
+			p.HOUSE_COST as houseCost 
+		from 
+			T86_1_HOST_PREVIEW p inner join T86_1_HOSTING_STATUS s 
+		on p.HOST_NO = s.HOST_NO
+		where s.guest_email = #{guestEmail}
+	</select>
 </mapper>
