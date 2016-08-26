@@ -72,16 +72,12 @@ var myCity;
 
 		var zoomLevel		= 16;						// 지도의 확대 레벨 : 숫자가 클수록 확대됨
 
-		markerTitle		= "마커를 드래그해 위치를 지정하세요";					// 현재 위치 마커에 마우스를 올렸을때 나타나는 정보
+		markerTitle		= "마커를 드래그해 위치를 지정하세요";		// 현재 위치 마커에 마우스를 올렸을때 나타나는 정보
 		var markerMaxWidth	= 1000;						// 마커를 클릭했을때 나타나는 말풍선의 최대 크기
 		var markerMaxHeight = 1000;
 
 		// 말풍선 내용
-		contentString = '<div class="w3-tag w3-round w3-green" style="padding:3px">' +
-				  			'<div class="w3-tag w3-round w3-green w3-border w3-border-white">' +
-							 '관광지' +
-							'</div>' +
-						'</div>';
+		contentString = "";
 		//'<h2>위즈소프트</h2>'+
 		//'<p>위즈소프트는 WEB Agency & SI 분야에서 10년 이상의 풍부한 경험을 보유한<br />' +
            //'전문 인력으로 구성된 E-Business 전문 기업입니다.</p>' +
@@ -93,14 +89,25 @@ var myCity;
 		var mapOptions = {zoom: zoomLevel, center: new google.maps.LatLng(X_point, Y_point-0.0022131147), mapTypeId: google.maps.MapTypeId.ROADMAP}
 		map = new google.maps.Map(document.getElementById('MapPanel'), mapOptions);
 		geocoder = new google.maps.Geocoder();
-		marker = new google.maps.Marker({position: myLatlng, map: map, title: markerTitle, draggable:true});
-		console.dir(marker);
+		/*
+		var bounds = new google.maps.LatLngBounds();
+		var coo = new Array(new google.maps.LatLng(37.49794199999999, 127.02762099999995), 
+							new google.maps.LatLng(37.59794199999999, 127.12762099999995));
+		bounds.extend(coo[0]);
+		bounds.extend(coo[1]);
+		map.fitBounds(bounds);
+		console.log(map.fitBounds);
+		*/
+		
+		marker = new google.maps.Marker({position: myLatlng, map: map, title: markerTitle, 
+										draggable:true, animation: google.maps.Animation.DROP});		
+		//console.dir(marker);
 
 		infowindow = new google.maps.InfoWindow({content: contentString, maxWidth: markerMaxWidth, maxHeight:markerMaxHeight});
 					
-		google.maps.event.addListener(marker, 'click', function() {
+		/* google.maps.event.addListener(marker, 'click', function() {
 			infowindow.open(map, marker);
-		});
+		}); */
 		google.maps.event.addListener(marker, 'mouseup', function(event)
 		{				
 			/* geocode request 객체의 구성요소. (=호출법)
