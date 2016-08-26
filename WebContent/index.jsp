@@ -31,9 +31,9 @@
 
 
 	<div class="container">
-		<!--  코드시작 -->
+		<!-- 코드시작 -->
 		
-
+		<!-- 코드 종료 -->
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>

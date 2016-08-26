@@ -21,6 +21,8 @@ public class Download extends HttpServlet {
 		String realName = req.getParameter("realName");
 		String oriName = req.getParameter("oriName");
 		String draw = req.getParameter("draw");
+		
+		
 
 		String uploadPath = req.getServletContext().getRealPath("/upload");
 

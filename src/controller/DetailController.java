@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,23 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import detail.DetailDAO;
-import detail.DetailVO;
+import member.MemberDAO;
+import preview.PreviewDAO;
+import status.StatusDAO;
+import status.StatusVO;
 
 @WebServlet("/detail")
-public class DetailController extends HttpServlet{
+public class DetailController extends HttpServlet {
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int hostNo = Integer.parseInt(req.getParameter("hostNo"));
+		DetailDAO dDao = new DetailDAO();
+		StatusDAO sDao = new StatusDAO();
+		PreviewDAO fDao = new PreviewDAO();
+		MemberDAO mDao = new MemberDAO();
+		StatusVO s = sDao.selectOne(hostNo);
+		req.setAttribute("host", mDao.selectOne(s.getHostEmail()));
+		req.setAttribute("d", dDao.selectOne(hostNo));
+		req.setAttribute("s", s);
+		req.setAttribute("p", fDao.selectOne(hostNo));
 		
-		DetailDAO dao = new DetailDAO();
-		List<DetailVO> list = dao.selectAllDetail();
-		request.setAttribute("list", list);
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("detail.jsp");
-		rd.forward(request, response);
+		RequestDispatcher rd = req.getRequestDispatcher("detail.jsp");
+		rd.forward(req, resp);
 	}
-	
-	
-
 }
