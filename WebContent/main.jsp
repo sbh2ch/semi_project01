@@ -28,7 +28,7 @@
 		</div>
 	</nav>
 
-	<div class="jumbotron" style="background: url('images/img2.jpg') 0px no-repeat;">
+	<div class="jumbotron" style="background: url('images/img2.jpg'); background-size: 100%;">
 		<div class="container" align="center">
 			<h1 style="color: white">Hello, world!</h1>
 			<br>

@@ -30,7 +30,7 @@ public class DetailController extends HttpServlet {
 		req.setAttribute("d", dDao.selectOne(hostNo));
 		req.setAttribute("s", s);
 		req.setAttribute("p", fDao.selectOne(hostNo));
-
+		
 		RequestDispatcher rd = req.getRequestDispatcher("detail.jsp");
 		rd.forward(req, resp);
 	}
