@@ -2,4 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myDetail">
+	<resultMap type="detail" id="detailMap">
+		<result column="host_no" property="hostNo" />
+		<result column="house_type" property="houseType" />
+		<result column="room_type" property="roomType" />
+		<result column="host_state" property="hostState" />
+		<result column="house_capacity" property="houseCapacity" />
+		<result column="house_room" property="houseRoom" />
+		<result column="house_bed" property="houseBed" />
+		<result column="house_bath" property="houseBath" />
+		<result column="house_detail" property="houseDetail" />
+	</resultMap>
+
+	<!-- 디테일정보 출력 -->
+	<select id="selectAllDetail" resultMap="detailMap">
+		select * from t86_1_house_detail
+		order by host_num desc
+	</select>
+
+	<!-- <update id="updateDetail" parameterType="detail"> update t86_1_house_detail 
+		set house_type = #{houseType}, room_type = #{roomType}, host_state = #{hostState}, 
+		house_capacity = #{houseCapacity}, house_room = #{houseRoom}, house_bed = 
+		#{houseBed}, house_bath = #{houseBath} where host_num = #{hostNum} </update> -->
+
 </mapper>

@@ -14,7 +14,27 @@ public class DetailVO
 	private int houseRoom;
 	private int houseBed;
 	private int houseBath;
+	private String houseDetail;
 	
+	public String getHouseDetail() {
+		return houseDetail;
+	}
+	public void setHouseDetail(String houseDetail) {
+		this.houseDetail = houseDetail;
+	}
+	public DetailVO(int no, String houseType, String roomType, boolean hostState, int houseCapacity, int houseRoom,
+			int houseBed, int houseBath, String houseDetail) {
+		super();
+		this.no = no;
+		this.houseType = houseType;
+		this.roomType = roomType;
+		this.hostState = hostState;
+		this.houseCapacity = houseCapacity;
+		this.houseRoom = houseRoom;
+		this.houseBed = houseBed;
+		this.houseBath = houseBath;
+		this.houseDetail = houseDetail;
+	}
 	public DetailVO(){}
 	/**
 	 * int 호스팅번호, String 집종류, String 방종류, boolean 예약여부, int 수용인원, int 방갯수, int 침대갯수, int 욕실갯수 순서...
@@ -170,4 +190,6 @@ public class DetailVO
 	{
 		this.houseBath = houseBath;
 	}	
+	
+	
 }
