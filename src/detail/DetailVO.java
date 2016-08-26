@@ -175,4 +175,9 @@ public class DetailVO {
 		this.houseDetail = houseDetail;
 	}
 
+	@Override
+	public String toString() {
+		return "DetailVO [hostNo=" + hostNo + ", houseType=" + houseType + ", roomType=" + roomType + ", houseCapacity=" + houseCapacity + ", houseRoom=" + houseRoom + ", houseBed=" + houseBed + ", houseBath=" + houseBath + ", houseDetail=" + houseDetail + "]";
+	}
+
 }
