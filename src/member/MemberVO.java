@@ -68,4 +68,11 @@ public class MemberVO {
 	public void setFb(String fb) {
 		this.fb = fb;
 	}
+
+	@Override
+	public String toString() {
+		return "MemberVO [email=" + email + ", no=" + no + ", password=" + password + ", name=" + name + ", fb=" + fb + "]";
+	}
+	
+	
 }

@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import detail.DetailDAO;
+import member.MemberDAO;
 import preview.PreviewDAO;
 import status.StatusDAO;
+import status.StatusVO;
 
 @WebServlet("/detail")
 public class DetailController extends HttpServlet {
@@ -22,9 +24,11 @@ public class DetailController extends HttpServlet {
 		DetailDAO dDao = new DetailDAO();
 		StatusDAO sDao = new StatusDAO();
 		PreviewDAO fDao = new PreviewDAO();
-
+		MemberDAO mDao = new MemberDAO();
+		StatusVO s = sDao.selectOne(hostNo);
+		req.setAttribute("host", mDao.selectOne(s.getHostEmail()));
 		req.setAttribute("d", dDao.selectOne(hostNo));
-		req.setAttribute("s", sDao.selectOne(hostNo));
+		req.setAttribute("s", s);
 		req.setAttribute("p", fDao.selectOne(hostNo));
 
 		RequestDispatcher rd = req.getRequestDispatcher("detail.jsp");
