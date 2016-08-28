@@ -9,15 +9,14 @@
 		width:100%; height: 800px; z-index: 3000;">
 		<img id="img1" src="images/input_house.png" style="width: 100%; height: 100%; display: inline-block; left:0px; top:0px; position: absolute;">
 		<img name="imgs" src="images/input_house.png" style="width: 100%; height: 100%; display: inline-block; left:0px; top:0px; position: absolute;">
-		<img id="img2" src="images/input_photo.png" style="width: 100%; height: 100%; display: inline-block; left:0px; top:0px; position: absolute;">
-		<img id="img3" src="images/input_cost.png" style="width: 100%; height: 100%; display: inline-block; left:0px; top:0px; position: absolute;">
+		<img id="img2" src="images/input_cost.png" style="width: 100%; height: 100%; display: inline-block; left:0px; top:0px; position: absolute;">
+		<img id="img3" src="images/input_photo.png" style="width: 100%; height: 100%; display: inline-block; left:0px; top:0px; position: absolute;">
 	</div>
 	
 	<div style="display: inline-block; border:5px dotted red; left:10%; top:10%;
-		position: absolute; z-index:9000; width: 25%; height: 70%; ">
+		position: absolute; z-index:9000; width: 25%; height: 70%;" >
 			
 		<div class="container-fluid form-control" style=" width: 100%; min-height: 100%; height: 100%;  ">
-		<!--<form class="form-houseInfo" action="/semiProject01/hostInfo" method="post">-->				
 		<div class="form-houseInfo" >
 			
 		<div id="myCarousel" class="carousel slide" data-interval="false">
@@ -35,17 +34,9 @@
 		    <br>
 			<br>			
 			<h3>숙소 정보를 입력하세요</h3>
-			<br>					
-			<!-- private String houseType;
-				private String roomType;
-				private boolean hostState;
-				private int houseCapacity;
-				private int houseRoom;
-				private int houseBed;
-				private int houseBath;-->
+			<br>
 			<div style="border: 2px solid green;">
-				<div style="display:inline-block; border:2px solid red; margin-left: auto; margin-right: auto;">
-					<!--<label for="inputName" class="sr-only">Name</label>-->
+				<div style="display:inline-block; margin-left: auto; margin-right: auto;">
 					건물 유형<br>
 					<select class="col-md-2" name="houseType" style="width: 150px;">
 						<option selected="selected">건물 유형 선택</option>
@@ -57,7 +48,6 @@
 					</select>
 				</div>
 				<div style="display:inline-block; border:2px solid red; margin-left: auto; margin-right: auto;">
-					<!--<label for="inputEmail" class="sr-only">Email address</label>-->
 					숙소 유형<br>
 					<input type="radio" name="roomType" checked="checked" value="집 전체" />집 전체
 					<input type="radio" name="roomType" value="개인실" />개인실
@@ -68,49 +58,46 @@
 				<!--<label for="inputPassword" class="sr-only">Password</label>-->
 				<div style="float: left; display: inline-block; border:2px solid red;">
 					수용 인원<br>
-					<select>
-						<c:forEach begin="1" end="20" var="n">
-							<option>${n}명</option>
+					<select name="houseCapacity">
+						<c:forEach begin="1" end="16" var="n">
+							<option value="${n}">${n}명</option>
 						</c:forEach>
-						<option>20+명</option>
+						<option value="17">16+명</option>
 					</select>
 				</div>
 				<div style="float: left; display: inline-block; border:2px solid red;">
 					침실 수<br>
-					<select>
+					<select name="houseRoom">
 						<c:forEach begin="1" end="6" var="n">
-							<option>${n}실</option>
+							<option value="${n}">${n}실</option>
 						</c:forEach>
-						<option>6+실</option>
+						<option value="7">6+실</option>
 					</select>
 				</div>
 				<div style="float: left; display: inline-block; border:2px solid red;">
 					침대<br>
-					<select>
+					<select name="houseBed">
 						<c:forEach begin="0" end="10" var="n">
-							<option>${n}개</option>
+							<option value="${n}">${n}개</option>
 						</c:forEach>
-						<option>10+개</option>
+						<option value="11">10+개</option>
 					</select>
 				</div>
 				<div style="float: left; display: inline-block; border:2px solid red;">
 					욕실<br>
-					<select>
+					<select name="houseBath">
 						<c:forEach begin="0" end="6" var="n">
-							<option>${n}실</option>
+							<option value="${n}">${n}실</option>
 						</c:forEach>
-						<option>6+실</option>
+						<option value="7">6+실</option>
 					</select>
 				</div>
 			</div>
-			<h6 style="color: gray;">Use at least four characters.</h6>
 			<!--<button class="btn btn-lg btn-primary" type="button" id="step1btn">다음 단계</button>-->			
 			  <!--<a class="carousel-control11 right11" href="#myCarousel" data-slide="next">&rsaquo;</a>-->
-			  <a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next')">다음단계</a>
+			  <a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next'); inputData('step1');">다음단계</a>
 			<br>
 			<br>
-		    
-		    
 		    
 		    </div>
 		    <!-- 두번째 과정인 위치정보 입력창 -->
@@ -118,17 +105,7 @@
 			<br>
 			<br>			
 			<h3>위치 정보를 입력하세요</h3>
-			<br>					
-			<!--private int no;
-				private String nation;
-				private String addr;
-				private String detailAddr;
-				private String zipCode;
-				private String xPoint;
-				private String yPoint;
-				<label for="inputName" class="sr-only">Name</label>
-				<label for="inputEmail" class="sr-only">Email address</label>
-				<label for="inputPassword" class="sr-only">Password</label>-->
+			<br>
 				국가<br>
 				<input name="nation" type="text" class="form-control" placeholder="마커를 움직이면 자동입력됩니다"/>			
 				주소<br>
@@ -142,37 +119,62 @@
 				<br>
 				<br>
 				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
-				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next')">다음단계</a>
+				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next'); inputData('step2');">다음단계</a>
 			</div>
-				<!-- 세번째 과정인 위치정보 입력창 -->
-		    <div class="item">
-			<br>
-			<br>			
-			<h3>사진을 추가하여 숙소의 모습을 보여줍니다</h3>
-			<br>					
-			<!--
-				<label for="inputName" class="sr-only">Name</label>
-				<label for="inputEmail" class="sr-only">Email address</label>
-				<label for="inputPassword" class="sr-only">Password</label>-->
-				
+			<!-- 세번째 과정인 요금과 기간 입력창 -->
+			<div class="item" style="border:2px dotted gray; width: 100%; height: 100%;">
 				<br>
+				<br>			
+				<h3>적정한 1일당 요금과<br>숙박가능 기간,<br>소개문과 내용을 입력하세요</h3>
 				<br>
+				<input name="cost" type="text" class="form-control" placeholder="1일당의 숙박비용" onchange="calcDate()"/><br>
+				<input name="startDate" type="date" onchange="calcDate()"/>에서
+				<input name="endDate" type="date" onchange="calcDate()" />까지<br>
+				총 요금 : <input name="costResult" type="text" /><br>
+				<input name="hostDesc" type="text" class="form-control" placeholder="여기에 한줄설명을 입력합니다"/><br>
+				<textarea rows="6" cols="60" name="hostContent">여기에 내용을 입력합니다</textarea><br>
 				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
 				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next')">다음단계</a>			
 			</div>	
-			<!-- 네번째 과정인 요금 입력창 -->
+			<!-- 네번째 과정인 사진 입력창 -->
 			<div class="item">
 				<br>
 				<br>			
-				<h3>적정한 1일당 요금을 입력하세요</h3>
+				<h3>마지막으로,<br>여행객에게 보여줄 사진을 업로드 합니다.</h3>
 				<br>					
 			<!-- 여기서 form 을 설정해서 그간 입력한 정보를 모조리 전송 -->
-				<form action="" method="post" onkeydown="if(event.keyCode==13) return false;">
-					<input name="cost" type="text" class="form-control" placeholder="1일당의 숙박비용"/>	
+				<form action="" method="post" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data">					
+				<div id="dropbox" ondragenter="return false;"  ondragover="return false;"
+       ondrop="onDrop(event)" style=" width:100%; height: 300px; border: 5px dotted gray; border-radius:10%;" >여기에 드래그 앤 드랍</div>
+				<input type="file" name="img" />	
 					<br>
 					<br>
 					<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
 					<input class="btn btn-lg btn-primary" type="submit" value="입력완료" />
+					<!-- 이전 단계에서 입력되있던 데이터들을 여기에 모두 모음 -->
+					<!-- 1단계의 데이터 -->
+					<input type="hidden" name="houseTypeH" />
+					<input type="hidden" name="roomTypeH" />
+					<input type="hidden" name="hostStateH" />
+					<input type="hidden" name="houseCapacityH" />
+					<input type="hidden" name="houseRoomH" />
+					<input type="hidden" name="houseBedH" />
+					<input type="hidden" name="houseBathH" />
+					<!-- 2단계의 데이터 -->
+					<input type="hidden" name="nationH" />
+					<input type="hidden" name="addrH" />
+					<input type="hidden" name="zipCodeH" />
+					<input type="hidden" name="detailAddrH" />
+					<input type="hidden" name="xPointH" />
+					<input type="hidden" name="yPointH" />
+					<!-- 3단계의 데이터 -->
+					<input type="hidden" name="costH" />
+					<input type="hidden" name="startDateH" />
+					<input type="hidden" name="endDataH" />
+					<input type="hidden" name="hostDescH" />
+					<input type="hidden" name="hostContentH" />
+					<input type="hidden" name="hostNoH" />
+					<input type="hidden" name="hostEmailH" />
 				</form>			
 			</div>		  
 		  <!-- Carousel nav -->
