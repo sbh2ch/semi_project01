@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,10 @@ public class HostInfoFormController extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		MemberVO user = (MemberVO) request.getSession().getAttribute("user");
-		response.sendRedirect("hostInfoForm.jsp");
+		String uEmail = user.getEmail();
+		
+		request.setAttribute("email", uEmail);
+		RequestDispatcher rd = request.getRequestDispatcher("hostInfoForm.jsp");
+		rd.forward(request, response);
 	}	
 }

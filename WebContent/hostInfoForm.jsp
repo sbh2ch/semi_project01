@@ -297,6 +297,8 @@ var myCity;
 		switch(step)
 		{
 		case "step1":
+			/* var email = ${email};
+			alert(email); */
 			document.getElementsByName("houseTypeH")[0].value = document.getElementsByName("houseType")[0].value;
 			var roomTypeRadio = document.getElementsByName("roomType");
 			for(var i = 0 ; i < roomTypeRadio.length ; i++)
@@ -306,7 +308,7 @@ var myCity;
 					document.getElementsByName("roomTypeH")[0].value = roomTypeRadio[i].value;
 				}
 			}
-			document.getElementsByName("hostStateH")[0].value = false;
+			//document.getElementsByName("hostStateH")[0].value = false;
 			document.getElementsByName("houseCapacityH")[0].value = document.getElementsByName("houseCapacity")[0].value;
 			document.getElementsByName("houseRoomH")[0].value = document.getElementsByName("houseRoom")[0].value;
 			document.getElementsByName("houseBedH")[0].value = document.getElementsByName("houseBed")[0].value;
@@ -314,7 +316,7 @@ var myCity;
 			// 테스트용 얼럿창
 			alert("집종류:"+document.getElementsByName("houseTypeH")[0].value+"\n"
 					+"방종류:"+document.getElementsByName("roomTypeH")[0].value+"\n"
-					+"예약상태:"+document.getElementsByName("hostStateH")[0].value+"\n"
+					+"예약상태:"+document.getElementsByName("hostStatusH")[0].value+"\n"
 					+"수용인원:"+document.getElementsByName("houseCapacityH")[0].value+"\n"
 					+"침실갯수:"+document.getElementsByName("houseRoomH")[0].value+"\n"
 					+"침대갯수:"+document.getElementsByName("houseBedH")[0].value+"\n"
@@ -336,6 +338,18 @@ var myCity;
 					+"Y좌표:"+document.getElementsByName("yPointH")[0].value);
 			break;
 		case "step3":
+			document.getElementsByName("costH")[0].value = document.getElementsByName("cost")[0].value;
+			document.getElementsByName("startDateH")[0].value = document.getElementsByName("startDate")[0].value;
+			document.getElementsByName("endDateH")[0].value = document.getElementsByName("endDate")[0].value;
+			document.getElementsByName("hostDescH")[0].value = document.getElementsByName("hostDesc")[0].value;
+			document.getElementsByName("hostDetailH")[0].value = document.getElementsByName("hostDetail")[0].value;			
+			document.getElementsByName("hostEmailH")[0].value = ${email};
+			alert("요금:"+document.getElementsByName("costH")[0].value+"\n"
+					+"시작일:"+document.getElementsByName("startDateH")[0].value+"\n"
+					+"종료일:"+document.getElementsByName("endDateH")[0].value+"\n"
+					+"소개제목:"+document.getElementsByName("hostDescH")[0].value+"\n"
+					+"소개내용:"+document.getElementsByName("hostDetailH")[0].value+"\n"
+					+"이메일:"+document.getElementsByName("hostEmailH")[0].value);
 			break;
 		case "step4":
 			break;

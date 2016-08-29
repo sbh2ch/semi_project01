@@ -12,7 +12,7 @@ public class LocationVO
 	 * 	xPoint		= 지도의 마커 위치를 표시할 X 좌표.
 	 * 	yPoint		= 지도의 마커 위치를 표시할 Y 좌표.
 	 */
-	private int no;
+	private int hostNo;
 	private String nation;
 	private String addr;
 	private String detailAddr;
@@ -21,9 +21,9 @@ public class LocationVO
 	private String yPoint;
 	
 	public LocationVO(){}
-	public LocationVO(int no, String nation, String addr, String detailAddr, String zipCode, String xPoint, String yPoint)
+	public LocationVO(int hostNo, String nation, String addr, String detailAddr, String zipCode, String xPoint, String yPoint)
 	{
-		this.no = no;
+		this.hostNo = hostNo;
 		this.nation = nation;
 		this.addr = addr;
 		this.detailAddr = detailAddr;
@@ -32,13 +32,13 @@ public class LocationVO
 		this.yPoint = yPoint;		
 	}
 	
-	public int getNo()
+	public int getHostNo()
 	{
-		return no;
+		return hostNo;
 	}
-	public void setNo(int no)
+	public void setHostNo(int hostNo)
 	{
-		this.no = no;
+		this.hostNo = hostNo;
 	}
 	public String getNation()
 	{

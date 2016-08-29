@@ -101,7 +101,7 @@
 								<a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> ${user.name} <span class="caret"></span></a>
 								<ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
 									<li role="presentation">
-										<a role="menuitem" tabindex="-1" href="#">호스팅하기</a>
+										<a role="menuitem" tabindex="-1" href="/semiProject01/hostInfoForm">호스팅하기</a>
 									</li>
 									<li role="presentation">
 										<a role="menuitem" tabindex="-1" href="/semiProject01/record">이용내역</a>

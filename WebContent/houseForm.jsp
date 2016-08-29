@@ -132,9 +132,9 @@
 				<input name="endDate" type="date" onchange="calcDate()" />까지<br>
 				총 요금 : <input name="costResult" type="text" /><br>
 				<input name="hostDesc" type="text" class="form-control" placeholder="여기에 한줄설명을 입력합니다"/><br>
-				<textarea rows="6" cols="60" name="hostContent">여기에 내용을 입력합니다</textarea><br>
+				<textarea rows="6" cols="60" name="hostDetail">여기에 내용을 입력합니다</textarea><br>
 				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
-				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next')">다음단계</a>			
+				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next'); inputData('step3');">다음단계</a>			
 			</div>	
 			<!-- 네번째 과정인 사진 입력창 -->
 			<div class="item">
@@ -143,19 +143,11 @@
 				<h3>마지막으로,<br>여행객에게 보여줄 사진을 업로드 합니다.</h3>
 				<br>					
 			<!-- 여기서 form 을 설정해서 그간 입력한 정보를 모조리 전송 -->
-				<form action="" method="post" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data">					
-				<div id="dropbox" ondragenter="return false;"  ondragover="return false;"
-       ondrop="onDrop(event)" style=" width:100%; height: 300px; border: 5px dotted gray; border-radius:10%;" >여기에 드래그 앤 드랍</div>
-				<input type="file" name="img" />	
-					<br>
-					<br>
-					<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
-					<input class="btn btn-lg btn-primary" type="submit" value="입력완료" />
+				<form action="hostInfo" method="post" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data">					
 					<!-- 이전 단계에서 입력되있던 데이터들을 여기에 모두 모음 -->
 					<!-- 1단계의 데이터 -->
 					<input type="hidden" name="houseTypeH" />
-					<input type="hidden" name="roomTypeH" />
-					<input type="hidden" name="hostStateH" />
+					<input type="hidden" name="roomTypeH" />					
 					<input type="hidden" name="houseCapacityH" />
 					<input type="hidden" name="houseRoomH" />
 					<input type="hidden" name="houseBedH" />
@@ -170,11 +162,19 @@
 					<!-- 3단계의 데이터 -->
 					<input type="hidden" name="costH" />
 					<input type="hidden" name="startDateH" />
-					<input type="hidden" name="endDataH" />
+					<input type="hidden" name="endDateH" />
 					<input type="hidden" name="hostDescH" />
-					<input type="hidden" name="hostContentH" />
-					<input type="hidden" name="hostNoH" />
+					<input type="hidden" name="hostDetailH" />
 					<input type="hidden" name="hostEmailH" />
+					<!-- 4단계의 데이터 -->
+					<div id="dropbox" ondragenter="return false;"  ondragover="return false;"
+       					ondrop="onDrop(event)" style=" width:100%; height: 300px; border: 5px dotted gray; border-radius:10%;" >여기에 드래그 앤 드랍</div>
+					<input type="file" name="img" />
+					<input type="hidden" name="hostStatusH" value="NO" />
+					<br>
+					<br>
+					<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
+					<input class="btn btn-lg btn-primary" type="submit" value="입력완료" />
 				</form>			
 			</div>		  
 		  <!-- Carousel nav -->

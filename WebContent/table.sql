@@ -48,7 +48,7 @@ house_bath number(10) not null,
 house_detail varchar2(4000)
 );
 
-select * from T86_1_HOST_DETAIL;
+select * from t86_1_host_detail;
 
 create sequence seq_1_members;
 
