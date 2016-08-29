@@ -16,9 +16,8 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <link href="css/jumbotron.css" rel="stylesheet">
-
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="js/ie-emulation-modes-warning.js"></script>
-
 </head>
 
 <body>
@@ -29,7 +28,7 @@
 		</div>
 	</nav>
 
-	<div class="jumbotron" style="background: url('images/img2.jpg') 0px no-repeat;">
+	<div class="jumbotron" style="background: url('images/img2.jpg'); background-size: 100%;">
 		<div class="container" align="center">
 			<h1 style="color: white">Hello, world!</h1>
 			<br>
@@ -67,23 +66,16 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<img alt="" src="images/house1.jpg" width="90%" height="240px;" class="img-rounded">
-				<h3>깔끔한 방</h3>
-				<p>개인실, 숙박 인원 2명</p>
-			</div>
-			<div class="col-md-4">
-				<img alt="" src="images/house2.jpg" width="90%" height="240px;" class="img-rounded">
-				<h3>상현이형 방</h3>
-				<p>단체실, 숙박 인원 5명</p>
-			</div><div class="col-md-4">
-				<img alt="" src="images/house3.jpg" width="90%" height="240px;" class="img-rounded">
-				<h3>연결이형 방</h3>
-				<p>개인실, 숙박 인원 1명</p>
-			</div>
+			<c:forEach var="p" items="${pList}">
+				<fmt:formatDate value="${p.regDate}" pattern="yyyy.MM.dd" var="regDate"/>
+				<div class="col-md-4 link_page">
+					<img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" class="img-rounded">
+					<h3>${p.houseDesc}</h3>
+					<span>${p.houseCost}<span class="fa fa-krw" aria-hidden="true"></span> / day</span><span style="padding-left:110px">${regDate}</span><br><br>
+					<p><a class="btn btn-default" href="/semiProject01/detail?hostNo=${p.hostNo}" role="button">상세보기&raquo;</a></p>
+				</div>
+			</c:forEach>
 		</div>
-
-		<hr>
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>

@@ -13,6 +13,8 @@
 		<typeAlias alias="location" type="location.LocationVO" />
 		<typeAlias alias="preview" type="preview.PreviewVO" />
 		<typeAlias alias="detail" type="detail.DetailVO" />
+		<typeAlias alias="status" type="status.StatusVO" />
+		<typeAlias alias="reply" type="reply.ReplyVO" />
 		<typeAlias alias="msg" type="msgBoard.MsgVO" />
 	</typeAliases>
 
@@ -30,6 +32,11 @@
 
 	<mappers>
 		<mapper resource="config/sqlmap/oracle/member.xml" />
+		<mapper resource="config/sqlmap/oracle/location.xml" />
+		<mapper resource="config/sqlmap/oracle/preview.xml" />
+		<mapper resource="config/sqlmap/oracle/detail.xml" />
+		<mapper resource="config/sqlmap/oracle/status.xml" />
+		<mapper resource="config/sqlmap/oracle/reply.xml" />
 		<mapper resource="config/sqlmap/oracle/msg.xml" />
 	</mappers>
 </configuration>

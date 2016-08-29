@@ -2,81 +2,157 @@ package preview;
 
 import java.util.Date;
 
-public class PreviewVO
-{	
+/**
+ * @param email
+ *            아이디 FK
+ * @param hostNo
+ *            글번호 PK
+ * @param regDate
+ *            등록일
+ * @param startDate
+ *            시작일
+ * @param endDate
+ *            종료일
+ * @param imgPath
+ *            이미지 주소
+ * @param imgOriName
+ *            원본이름
+ * @param imgRealName
+ *            fileRename
+ * @param houseDesc
+ *            제목
+ * @param houseCost
+ *            하루 숙박료
+ */
+public class PreviewVO {
 	private String email;
-	private int no;
-	private Date date;
+	private int hostNo;
+	private Date regDate;
+	private Date startDate;
+	private Date endDate;
 	private String imgPath;
-	private String desc;
-	private int cost;
-	
-	public PreviewVO(){}
-	/**
-	 * String 이메일, int 호스트번호, Date 날짜, String 이미지경로, String 설명, String 요금 순서대로...
-	 * @param email	: 이 글을 올린 회원의 이메일. (신상명세)
-	 * @param no	: 회원이 호스팅 한다는 글을 올린 번호. 이 번호로 모든 호스팅 정보가 조회됨.
-	 * @param date : 예약이 가능한 날짜.
-	 * @param imgPath : 미리보기 및 상세정보에 보여줄 이미지. 딱 한장만 하자.....
-	 * @param desc : 호스팅한 숙소에 대한 설명. 혹은 제목..? (ex: xxx동 개 쩌는집...)
-	 * @param cost : 요금. 계산 등을 구현할 생각이라면 int 형으로.
-	 */
-	public PreviewVO(String email, int no, Date date, String imgPath, String desc, int cost)
-	{
-		this.email = email;
-		this.no = no;
-		this.date = date;
-		this.imgPath = imgPath;
-		this.desc = desc;
-		this.cost = cost;		
+	private String imgOriName;
+	private String imgRealName;
+	private String houseDesc;
+	private int houseCost;
+
+	public PreviewVO() {
+		super();
 	}
-	
-	public String getEmail()
-	{
+
+	/*
+	 * insert용 생성자
+	 */
+	public PreviewVO(String email, Date startDate, Date endDate, String imgPath, String imgOriName, String imgRealName, String houseDesc, int houseCost) {
+		super();
+		this.email = email;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.imgPath = imgPath;
+		this.imgOriName = imgOriName;
+		this.imgRealName = imgRealName;
+		this.houseDesc = houseDesc;
+		this.houseCost = houseCost;
+	}
+
+	/*
+	 * update용 생성자
+	 */
+	public PreviewVO(int hostNo, Date startDate, Date endDate, String imgPath, String imgOriName, String imgRealName, String houseDesc, int houseCost) {
+		super();
+		this.hostNo = hostNo;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.imgPath = imgPath;
+		this.imgOriName = imgOriName;
+		this.imgRealName = imgRealName;
+		this.houseDesc = houseDesc;
+		this.houseCost = houseCost;
+	}
+
+	public Date getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email)
-	{
+
+	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getNo()
-	{
-		return no;
+
+	public int getHostNo() {
+		return hostNo;
 	}
-	public void setNo(int no)
-	{
-		this.no = no;
+
+	public void setHostNo(int hostNo) {
+		this.hostNo = hostNo;
 	}
-	public Date getDate()
-	{
-		return date;
-	}
-	public void setDate(Date date)
-	{
-		this.date = date;
-	}
-	public String getImgPath()
-	{
+
+	public String getImgPath() {
 		return imgPath;
 	}
-	public void setImgPath(String imgPath)
-	{
+
+	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
-	public String getDesc()
-	{
-		return desc;
+
+	public String getImgOriName() {
+		return imgOriName;
 	}
-	public void setDesc(String desc)
-	{
-		this.desc = desc;
+
+	public void setImgOriName(String imgOriName) {
+		this.imgOriName = imgOriName;
 	}
-	public int getCost()
-	{
-		return cost;
+
+	public String getImgRealName() {
+		return imgRealName;
 	}
-	public void setCost(int cost)
-	{
-		this.cost = cost;
-	}	
+
+	public void setImgRealName(String imgRealName) {
+		this.imgRealName = imgRealName;
+	}
+
+	public String getHouseDesc() {
+		return houseDesc;
+	}
+
+	public void setHouseDesc(String houseDesc) {
+		this.houseDesc = houseDesc;
+	}
+
+	public int getHouseCost() {
+		return houseCost;
+	}
+
+	public void setHouseCost(int houseCost) {
+		this.houseCost = houseCost;
+	}
+
+	@Override
+	public String toString() {
+		return "PreviewVO [email=" + email + ", hostNo=" + hostNo + ", regDate=" + regDate + ", startDate=" + startDate + ", endDate=" + endDate + ", imgPath=" + imgPath + ", imgOriName=" + imgOriName + ", imgRealName=" + imgRealName + ", houseDesc=" + houseDesc + ", houseCost=" + houseCost + "]";
+	}
+
 }

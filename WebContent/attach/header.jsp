@@ -59,8 +59,8 @@
 		FB.logout(function(response) {
 			// user is now logged out
 		});
-		
-		setTimeout(function(){
+
+		setTimeout(function() {
 			var URL = "/semiProject01/login/logout";
 			location.replace(URL);
 		}, 500);
@@ -86,38 +86,36 @@
 						<button type="submit" class="btn btn-success">Sign in / up</button>
 					</c:when>
 					<c:otherwise>
-						<c:choose>
-							<c:when test="${not empty user.fb}">
-								<ul class="nav nav-pills" role="tablist">
-									<li role="presentation" class="active">
-										<a onclick="fb_logout()" class="btn btn-primary">FB out</a>
+						<ul class="nav nav-pills" role="tablist">
+							<li role="presentation" class="active">
+								<c:if test="${not empty user.fb}">
+									<a onclick="fb_logout()" class="btn btn-primary">Log out</a>
+								</c:if>
+								<c:if test="${empty user.fb}">
+									<a type="submit" href="/semiProject01/login/logout" class="btn btn-primary">Log out</a>
+								</c:if>
+							</li>
+							<li role="presentation" class="dropdown">
+								<a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> ${user.name} <span class="caret"></span></a>
+								<ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="#">호스팅하기</a>
 									</li>
-									<li role="presentation" class="dropdown">
-										<a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> ${user.name} <span class="caret"></span>
-										</a>
-										<ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
-											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Action</a>
-											</li>
-											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Another action</a>
-											</li>
-											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Something else here</a>
-											</li>
-											<li role="presentation" class="divider"></li>
-											<li role="presentation">
-												<a role="menuitem" tabindex="-1" href="#">Separated link</a>
-											</li>
-										</ul>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="/semiProject01/record">이용내역</a>
 									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="#">메세지</a>
+									</li>
+									<c:if test="${empty user.fb}">
+										<li role="presentation" class="divider"></li>
+										<li role="presentation">
+											<a role="menuitem" tabindex="-1" href="/semiProject01/modAccount.jsp">계정관리</a>
+										</li>
+									</c:if>
 								</ul>
-							</c:when>
-							<c:otherwise>
-								<a style="text-decoration: none; color: white"><c:out value="${user.fb}" />님 환영합니다.</a>
-								<a type="submit" href="/semiProject01/login/logout" class="btn btn-danger">NM out</a>
-							</c:otherwise>
-						</c:choose>
+							</li>
+						</ul>
 					</c:otherwise>
 				</c:choose>
 			</form>

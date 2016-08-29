@@ -31,9 +31,24 @@
 
 
 	<div class="container">
-		<!-- 코드시작 -->
+		<!--  코드시작 -->
+		<div id="comment">
+			<form method="post" action="replyReg">
+			<table width="400px">
+				<tr>
+					<td><c:out value="${hostEmail}" /></td>
+					<td><textarea name="" rows="5" cols="100"></textarea></td>
+					<td><input type="submit" value="등록"></td>
+				</tr>
+			</table>
+			
+			</form>
+		</div>
 		
-		<!-- 코드 종료 -->
+		
+
+
+
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>

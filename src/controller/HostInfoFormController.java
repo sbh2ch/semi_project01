@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/login/logout")
-public class LogoutController extends HttpServlet{
-
+@WebServlet("/hostInfoForm")
+public class HostInfoFormController extends HttpServlet
+{
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getSession().invalidate();
-
-		resp.sendRedirect("/semiProject01/main");
-	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		response.sendRedirect("hostInfoForm.jsp");
+	}	
 }
