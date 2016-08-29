@@ -13,6 +13,7 @@
 		<typeAlias alias="location" type="location.LocationVO" />
 		<typeAlias alias="preview" type="preview.PreviewVO" />
 		<typeAlias alias="detail" type="detail.DetailVO" />
+		<typeAlias alias="msg" type="msgBoard.MsgVO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -29,5 +30,6 @@
 
 	<mappers>
 		<mapper resource="config/sqlmap/oracle/member.xml" />
+		<mapper resource="config/sqlmap/oracle/msg.xml" />
 	</mappers>
 </configuration>
