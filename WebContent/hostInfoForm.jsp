@@ -356,6 +356,7 @@ var myCity;
 		var interval = eDate.getTime() - sDate.getTime();
 		var intervalDate = Math.floor(interval / (1000 * 60 * 60 * 24));
 		
+		/* 3군데 다 입력됬을때만 총 요금을 계산. */		
 		if(cost != "" && sDateV != "" && eDateV != "")
 		{ document.getElementsByName("costResult")[0].value = (intervalDate + 1) * parseInt(cost); }
 	}
@@ -404,7 +405,6 @@ var myCity;
 
 <script type="text/javascript">
 /* 이미지 전환을 위한 자바스크립트 공간 */
-
 
 var mapPanel = document.getElementById("MapPanel");
 var img1 = document.getElementById("img1");

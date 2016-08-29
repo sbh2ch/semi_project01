@@ -7,6 +7,21 @@ start_date date,
 end_date date,
 hosting_status varchar2(5)
 );
+--쪽지함
+create table t86_1_members_msg(
+msg_no number primary key,
+sender varchar2(50),
+receiver varchar2(50),
+content varchar2(2000)
+);
+--회원
+create table t86_1_members(
+email varchar2(20) primary key,
+no varchar2(20) not null,
+password varchar2(20),
+name varchar2(30) not null,
+fb varchar2(10) --페이스북 계정체크
+);
 -- 미리보기
 create table t86_1_host_preview(
 email varchar2(20),
@@ -35,7 +50,18 @@ house_detail varchar2(4000)
 
 select * from T86_1_HOST_DETAIL;
 
+create sequence seq_1_members;
 
+--위치정보
+create table t86_1_host_location(
+host_no number primary key,
+nation varchar2(30) not null,
+addr varchar2(30) not null,
+zip_code varchar2(30) not null,
+detail_addr varchar2(30),
+X_point varchar2(30) not null,
+Y_point varchar2(30) not null
+);
 -- 후기쓰기
 create sequence t86_1_reply_no;
 create sequence test_seq;
