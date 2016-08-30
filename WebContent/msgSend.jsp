@@ -31,42 +31,75 @@
 
 
 
-	<div class="container">
-		<!--  코드시작 -->
-	  <table width='80%' border='1'>
-	  <tr>
-	    <th>수신자</th>
-	    <th>제목</th>
-	    </tr>
-		<c:forEach var="board" items="${list}">
-		<tr>
-		  <td><c:out value="${board.writer}" /></td>
-		  <td><a href='detail?no=<c:out value="${board.no}" />'><c:out value="${board.title}" /></a></td>
-		  </td>
-		 </tr>
-		 </c:forEach>
-		 <c:if test="${empty list}">
-		 <tr>
-		    <td colspan='4'>게시물이 존재하지 않습니다.</td>
-		 </tr>
-		 </c:if>
-		 </table>
+
+	<!--  코드시작 -->
+<div class="jumbotron" style="background: url('images/pic1234.jpg'); background-size: 100%;">
+		<div class="container" align="center">
+			<h1 style="color: white">Hello, world!</h1>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
 	</div>
-	<form method='post' action='write'
-		       encType="multipart/form-data">
-		    수신자 : <input type='text' name='writer' size='30' /><br>
-		    발신자 : <input type='text' name='writer' size='30' /><br>
-		    내용 : <textarea name='content' rows='7' cols='70'></textarea><br>
-		   <button type='submit'>등록</button>
-		 </form>
+
+		<div class="row">
+			<c:forEach var="p" items="${pList}">
+				<fmt:formatDate value="${p.regDate}" pattern="yyyy.MM.dd" var="regDate"/>
+				<div class="col-md-4 link_page">
+					<img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" class="img-rounded">
+					<h3>${p.houseDesc}</h3>
+					<span>${p.houseCost}<span class="fa fa-krw" aria-hidden="true"></span> / day</span><span style="padding-left:110px">${regDate}</span><br><br>
+					<p><a class="btn btn-default" href="/semiProject01/detail?hostNo=${p.hostNo}" role="button">상세보기&raquo;</a></p>
+				</div>
+			</c:forEach>
+		</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+  		<a type="button" class="btn btn-primary btn-lg" href='/semiProject01/msgAdress.jsp'>받은 쪽지함</a>
+		<a type="button" class="btn btn-default btn-lg" href='/semiProject01/msgSend.jsp'>보낸 쪽지함</a>
+  
+  <table class="table table-striped" width='85%' border='1'>
+			<tr>
+				<th width='15%'>번호</th>
+				<th width='20%'>수신자</th>
+				<th>내용</th>
+			</tr>
+			<c:forEach var="board" items="${list}">
+				<tr>
+					<td width='15%'><c:out value="${msg.no}" /></td>
+					<td width='20%'><c:out value="${msg.writer}" /></td>
+					<td><c:out value="${msg.messege}" /></td>
+					</td>
+				</tr>
+			</c:forEach>
+			<c:if test="${empty list}">
+				<tr>
+					<td colspan='4'>게시물이 존재하지 않습니다.</td>
+				</tr>
+			</c:if>
+		</table></div>
+  		<div class="col-md-3 col-md-offset-1">
+  			<form method='post' action='write' encType="multipart/form-data">
+				<div class="form-group">
+    				<label class="sr-only" for="exampleInputEmail3">발신자를 입력하세요</label>
+    				<input type='text' name='writer' class="form-control" id="exampleInputEmail3" placeholder="발신자를 입력하세요">
+ 			    </div>
+				<div class="form-group">
+    				<label class="sr-only" for="exampleInputEmail3">수신자를 입력하세요</label>
+    				<input type='text' name='writer' class="form-control" id="exampleInputEmail3" placeholder="수신자를 입력하세요">
+ 			    </div>
+				내용 : <textarea name='content' class="form-control" rows="3"></textarea><br>
+				<button type="submit" class="btn btn-default">등록</button>
+			</form>
+		
+		</div>
+</div>
 
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
-	</div>
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<scriptsrc="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>

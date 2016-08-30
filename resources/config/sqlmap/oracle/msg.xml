@@ -6,18 +6,18 @@
 		insert into
 		t86_1_members_msg(no, sender, addressee, messege
 		)
-		values(#{no},#{sender},#{addressee},#{messege})
+		values(s86_1_members_msg_no.nextVal,#{sender},#{addressee},#{messege})
 	</insert>
 
-	<select id="selectSend" resultType="msg">
+	<select id="selectSend" parameterType="string" resultType="msg">
 		select * from
-		t86_1_members_msg where sender = #{sender} order by no
+		t86_1_members_msg where sender = #{sender} order by no desc
 	</select>
 
 
-	<select id="selectAddress" resultType="msg">
+	<select id="selectAddress" parameterType="string" resultType="msg">
 		select * from
-		t86_1_members_msg where addressee = #{addressee} order by no
+		t86_1_members_msg where addressee = #{addressee} order by no desc
 	</select>
 
 

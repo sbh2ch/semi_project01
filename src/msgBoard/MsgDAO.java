@@ -13,17 +13,18 @@ public class MsgDAO {
 	public MsgDAO() {
 		session = MyAppSqlConfig.getSqlSessionInstance();
 	}
-	public void insert(MsgVO m) {
-		session.insert("myMsg.insert", m);
+	public int insert(MsgVO msg) {
+		session.insert("myMsg.insert", msg);
 		session.commit();
+		return msg.getNo();
 	}
 	
 	public List<MsgVO> selectSend(String sender){
-		return session.selectList("myMsg.selectSend");
+		return session.selectList("myMsg.selectSend", sender);
 	}
 
 	public List<MsgVO> selectAddress(String addressee){
-		return session.selectList("myMsg.selectAddress");
+		return session.selectList("myMsg.selectAddress", addressee);
 	}
 
 	
