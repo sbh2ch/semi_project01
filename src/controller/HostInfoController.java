@@ -109,7 +109,6 @@ public class HostInfoController extends HttpServlet
 			pVO.setHostNo(hostNo);
 			pVO.setImgOriName(oriFileName);
 			pVO.setImgRealName(realFileName);
-			pVO.setImgSize(size);
 			//pDAO.insertFile(pVO);			
 		}
 		
