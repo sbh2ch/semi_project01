@@ -33,6 +33,7 @@ public class PreviewVO {
 	private String imgPath;
 	private String imgOriName;
 	private String imgRealName;
+	private long imgSize;
 	private String houseDesc;
 	private int houseCost;
 
@@ -43,7 +44,7 @@ public class PreviewVO {
 	/*
 	 * insert용 생성자
 	 */
-	public PreviewVO(String email, Date startDate, Date endDate, String imgPath, String imgOriName, String imgRealName, String houseDesc, int houseCost) {
+	public PreviewVO(String email, Date startDate, Date endDate, String imgPath, String imgOriName, String imgRealName, long imgSize, String houseDesc, int houseCost) {
 		super();
 		this.email = email;
 		this.startDate = startDate;
@@ -51,6 +52,7 @@ public class PreviewVO {
 		this.imgPath = imgPath;
 		this.imgOriName = imgOriName;
 		this.imgRealName = imgRealName;
+		this.imgSize = imgSize;
 		this.houseDesc = houseDesc;
 		this.houseCost = houseCost;
 	}
@@ -58,7 +60,7 @@ public class PreviewVO {
 	/*
 	 * update용 생성자
 	 */
-	public PreviewVO(int hostNo, Date startDate, Date endDate, String imgPath, String imgOriName, String imgRealName, String houseDesc, int houseCost) {
+	public PreviewVO(int hostNo, Date startDate, Date endDate, String imgPath, String imgOriName, String imgRealName, long imgSize, String houseDesc, int houseCost) {
 		super();
 		this.hostNo = hostNo;
 		this.startDate = startDate;
@@ -66,8 +68,20 @@ public class PreviewVO {
 		this.imgPath = imgPath;
 		this.imgOriName = imgOriName;
 		this.imgRealName = imgRealName;
+		this.imgSize = imgSize;
 		this.houseDesc = houseDesc;
 		this.houseCost = houseCost;
+	}
+
+	
+	public long getImgSize()
+	{
+		return imgSize;
+	}
+
+	public void setImgSize(long imgSize)
+	{
+		this.imgSize = imgSize;
 	}
 
 	public Date getRegDate() {
