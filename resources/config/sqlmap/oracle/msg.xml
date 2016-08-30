@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myMsg">
+	<insert id="insert" parameterType="msg">
+		insert into
+		t86_1_members_msg(no, sender, addressee, messege
+		)
+		values(s86_1_members_msg_no.nextVal,#{sender},#{addressee},#{messege})
+	</insert>
+
+	<select id="selectSend" parameterType="string" resultType="msg">
+		select * from
+		t86_1_members_msg where sender = #{sender} order by no desc
+	</select>
+
+
+	<select id="selectAddress" parameterType="string" resultType="msg">
+		select * from
+		t86_1_members_msg where addressee = #{addressee} order by no desc
+	</select>
+
+
+</mapper>
+
