@@ -56,8 +56,8 @@
 		</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-1">
-  		<a type="button" class="btn btn-primary btn-lg" href='/semiProject01/msgAdress.jsp'>받은 쪽지함</a>
-		<a type="button" class="btn btn-default btn-lg" href='/semiProject01/msgSend.jsp'>보낸 쪽지함</a>
+  		<a type="button" class="btn btn-primary btn-lg" href='/semiProject01/listAddress'>받은 쪽지함</a>
+		<a type="button" class="btn btn-default btn-lg" href='/semiProject01/listSend'>보낸 쪽지함</a>
   
   <table class="table table-striped" width='85%' border='1'>
 			<tr>
@@ -70,7 +70,6 @@
 					<td width='15%'><c:out value="${msg.no}" /></td>
 					<td width='20%'><c:out value="${msg.writer}" /></td>
 					<td><c:out value="${msg.messege}" /></td>
-					</td>
 				</tr>
 			</c:forEach>
 			<c:if test="${empty list}">
@@ -82,8 +81,7 @@
   		<div class="col-md-3 col-md-offset-1">
   			<form method='post' action='write' encType="multipart/form-data">
 				<div class="form-group">
-    				<label class="sr-only" for="exampleInputEmail3">발신자를 입력하세요</label>
-    				<input type='text' name='writer' class="form-control" id="exampleInputEmail3" placeholder="발신자를 입력하세요">
+    				<input type='text' name='writer' class="form-control" id="exampleInputEmail3" placeholder="${user.name}" readonly>
  			    </div>
 				<div class="form-group">
     				<label class="sr-only" for="exampleInputEmail3">수신자를 입력하세요</label>
@@ -99,7 +97,7 @@
 		<footer>
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
-	<scriptsrc="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>

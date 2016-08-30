@@ -18,15 +18,13 @@ public class WriteController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		MsgVO msg=new MsgVO();
-	msg.setSender(request.getParameter("sender"));
-	msg.setAddressee(request.getParameter("addressee"));
-	msg.setMessege(request.getParameter("messege"));
-	
-	MsgDAO dao=new MsgDAO();
-	int no=dao.insert(msg);
+		MsgVO msg = new MsgVO();
+		msg.setSender(request.getParameter("sender"));
+		msg.setAddressee(request.getParameter("addressee"));
+		msg.setMessege(request.getParameter("messege"));
+
+		MsgDAO dao = new MsgDAO();
+		int no = dao.insert(msg);
 	}
-	
 
 }

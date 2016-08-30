@@ -105,7 +105,7 @@
 										<a role="menuitem" tabindex="-1" href="/semiProject01/record">이용내역</a>
 									</li>
 									<li role="presentation">
-										<a role="menuitem" tabindex="-1" href="#">메세지</a>
+										<a role="menuitem" tabindex="-1" href="/semiProject01/listAddress">메세지</a>
 									</li>
 									<c:if test="${empty user.fb}">
 										<li role="presentation" class="divider"></li>

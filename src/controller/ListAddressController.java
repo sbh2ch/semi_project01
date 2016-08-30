@@ -14,20 +14,20 @@ import member.MemberVO;
 import msgBoard.MsgDAO;
 import msgBoard.MsgVO;
 
-@WebServlet("/msg/listAddress")
+@WebServlet("/listAddress")
 public class ListAddressController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MsgDAO dao = new MsgDAO();
-		MemberVO user = (MemberVO) request.getAttribute("user");
-
+		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
+		
 		List<MsgVO> list = dao.selectAddress(user.getEmail());
 
 		request.setAttribute("list", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("msgAdress.jsp");
 		rd.forward(request, response);
 
 	}
