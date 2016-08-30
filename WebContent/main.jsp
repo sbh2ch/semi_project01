@@ -31,9 +31,7 @@
 	<div class="jumbotron" style="background: url('images/img2.jpg'); background-size: 100%;">
 		<div class="container" align="center">
 			<h1 style="color: white">Hello, world!</h1>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 		</div>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -44,7 +42,7 @@
 					<div class="form-group">
 						<input type="date" class="form-control" name="departDate">
 					</div>
-					&nbsp;&nbsp;<a style="color:white; font-size: 20px; font-weight: bold;">→</a>&nbsp;&nbsp;
+					&nbsp;&nbsp;<a style="color: white; font-size: 20px; font-weight: bold;">→</a>&nbsp;&nbsp;
 					<div class="form-group">
 						<input type="date" class="form-control" name="destDate">
 					</div>
@@ -67,12 +65,19 @@
 	<div class="container">
 		<div class="row">
 			<c:forEach var="p" items="${pList}">
-				<fmt:formatDate value="${p.regDate}" pattern="yyyy.MM.dd" var="regDate"/>
+				<fmt:formatDate value="${p.regDate}" pattern="yyyy.MM.dd" var="regDate" />
 				<div class="col-md-4 link_page">
 					<img alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y" width="90%" class="img-rounded">
 					<h3>${p.houseDesc}</h3>
-					<span>${p.houseCost}<span class="fa fa-krw" aria-hidden="true"></span> / day</span><span style="padding-left:110px">${regDate}</span><br><br>
-					<p><a class="btn btn-default" href="/semiProject01/detail?hostNo=${p.hostNo}" role="button">상세보기&raquo;</a></p>
+					<span>${p.houseCost}<span class="fa fa-krw" aria-hidden="true"></span>
+						/ day
+					</span>
+					<span style="padding-left: 110px">${regDate}</span>
+					<br>
+					<br>
+					<p>
+						<a class="btn btn-default" href="/semiProject01/detail?hostNo=${p.hostNo}" role="button">상세보기&raquo;</a>
+					</p>
 				</div>
 			</c:forEach>
 		</div>
@@ -80,7 +85,7 @@
 			<%@ include file="attach/footer.jsp"%>
 		</footer>
 	</div>
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>

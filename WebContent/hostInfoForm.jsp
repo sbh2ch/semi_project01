@@ -125,7 +125,7 @@ var myCity;
 				if (status == google.maps.GeocoderStatus.OK) 
 				{	
 					// 숨겨둔 MODAL 창 보여주기
-					//document.getElementById('id01').style.display='block';
+					//document.getElementById("myModal").style.display = "inline-block";
 					//if (results[1]) 
 					//{
 				    	//map.setZoom(11);
@@ -139,7 +139,8 @@ var myCity;
 				     	// event.latLng > mouseup 이벤트가 발생하는 지도상의 좌표값을 추출한다.
 			    	/* var longC = "<div style='left:600px; height:600px; position: absolute; z-index:3;'>"
 			    				+"<select>";  */
-			    	var longC = "<select>";
+			    	
+			    	var longC = "<h3 style='text-align: center;'>주소를 고르세요</h3><select>";
 				    for(var i = 0 ; i < results.length-1 ; i++)
 				   	{
 				    	longC = longC + "<option>" + results[i].formatted_address + "</option>";					    	
@@ -266,16 +267,6 @@ var myCity;
 		});
 	}
 	</script>
-</head>
-
-<body style="min-height: 800px; overflow: hidden;">
-		<%@ include file="attach/header.jsp"%>
-		<!-- 코드시작 -->
-		<%@ include file="houseForm.jsp" %>	
-		<!-- 코드종료 -->
-		<footer style="position:absolute; left: 0px; bottom: 20px; z-index: -100;">
-		<%@ include file="attach/footer.jsp"%>
-		</footer>
 <script type="text/javascript">
 	/* 상세정보 입력 관련 변수 */
 	var hostNum;
@@ -299,7 +290,118 @@ var myCity;
 	var houseImg;
 	var houseDesc;
 	var houseCost;
+	
+	/* 입력 단계별 처리 함수 부분 */
+	function inputData(step)
+	{
+		switch(step)
+		{
+		case "step1":
+			document.getElementsByName("houseTypeH")[0].value = document.getElementsByName("houseType")[0].value;
+			var roomTypeRadio = document.getElementsByName("roomType");
+			for(var i = 0 ; i < roomTypeRadio.length ; i++)
+			{
+				if(roomTypeRadio[i].checked == true)
+				{
+					document.getElementsByName("roomTypeH")[0].value = roomTypeRadio[i].value;
+				}
+			}
+			document.getElementsByName("hostStateH")[0].value = false;
+			document.getElementsByName("houseCapacityH")[0].value = document.getElementsByName("houseCapacity")[0].value;
+			document.getElementsByName("houseRoomH")[0].value = document.getElementsByName("houseRoom")[0].value;
+			document.getElementsByName("houseBedH")[0].value = document.getElementsByName("houseBed")[0].value;
+			document.getElementsByName("houseBathH")[0].value = document.getElementsByName("houseBath")[0].value;
+			// 테스트용 얼럿창
+			alert("집종류:"+document.getElementsByName("houseTypeH")[0].value+"\n"
+					+"방종류:"+document.getElementsByName("roomTypeH")[0].value+"\n"
+					+"예약상태:"+document.getElementsByName("hostStateH")[0].value+"\n"
+					+"수용인원:"+document.getElementsByName("houseCapacityH")[0].value+"\n"
+					+"침실갯수:"+document.getElementsByName("houseRoomH")[0].value+"\n"
+					+"침대갯수:"+document.getElementsByName("houseBedH")[0].value+"\n"
+					+"욕실갯수:"+document.getElementsByName("houseBathH")[0].value);
+			break;
+		case "step2":
+			document.getElementsByName("nationH")[0].value = document.getElementsByName("nation")[0].value;
+			document.getElementsByName("addrH")[0].value = document.getElementsByName("addr")[0].value;
+			document.getElementsByName("zipCodeH")[0].value = document.getElementsByName("zipCode")[0].value;
+			document.getElementsByName("detailAddrH")[0].value = document.getElementsByName("detailAddr")[0].value;
+			document.getElementsByName("xPointH")[0].value = document.getElementsByName("xPoint")[0].value;
+			document.getElementsByName("yPointH")[0].value = document.getElementsByName("yPoint")[0].value;
+			//테스트용 얼럿창
+			alert("국가:"+document.getElementsByName("nationH")[0].value+"\n"
+					+"주소:"+document.getElementsByName("addrH")[0].value+"\n"
+					+"우편번호:"+document.getElementsByName("zipCodeH")[0].value+"\n"
+					+"상세주소:"+document.getElementsByName("detailAddrH")[0].value+"\n"
+					+"X좌표:"+document.getElementsByName("xPointH")[0].value+"\n"
+					+"Y좌표:"+document.getElementsByName("yPointH")[0].value);
+			break;
+		case "step3":
+			break;
+		case "step4":
+			break;
+		}
+	}
+	function calcDate()
+	{
+		var cost = document.getElementsByName("cost")[0].value;
+		
+		var sDateV = document.getElementsByName("startDate")[0].value;
+		var sDateArr = sDateV.split("-");
+		
+		var eDateV = document.getElementsByName("endDate")[0].value;
+		var eDateArr = eDateV.split("-");
+		//alert(sDateArr[0] + sDateArr[1] + sDateArr[2]);
+		var sDate = new Date(sDateArr[0], sDateArr[1], sDateArr[2]);
+		var eDate = new Date(eDateArr[0], eDateArr[1], eDateArr[2]);
+		var interval = eDate.getTime() - sDate.getTime();
+		var intervalDate = Math.floor(interval / (1000 * 60 * 60 * 24));
+		
+		if(cost != "" && sDateV != "" && eDateV != "")
+		{ document.getElementsByName("costResult")[0].value = (intervalDate + 1) * parseInt(cost); }
+	}
+  /* function onDragEnter(event)
+  {    
+  	event.preventDefault();                            
+  }    
+  function onDragOver(event)
+  {    
+    event.preventDefault();      
+  }                  
+  function onDrop(event){  
+	var dropBox = document.getElementById("dropbox");          
+	//var dropImage = document.createElement("img");
+    event.stopPropagation();
+    event.preventDefault(); 
+    var file = event.dataTransfer.files[0];      
+             
+    var reader = new FileReader();    
+    
+    reader.onload = (function(aFile){return function(e) 
+    {         
+        var result = e.target.result; 
+          //dropImage.src = result;                                                                            
+          dropBox.innerHTML = "<img src='"+result+"'/>";               
+    }; 
+      })(file);
+      
+    reader.readAsDataURL(file);
+  }  */                     
+  
+  /* dropImage.addEventListener("load", function(e) {
+    //이미지 로딩 시 추가 처리할 로직 기입(사이즈 조절 등)           
+  }, true);  */         
 </script>
+</head>
+
+<body style="min-height: 800px; overflow: hidden;">
+		<%@ include file="attach/header.jsp"%>
+		<!-- 코드시작 -->
+		<%@ include file="houseForm.jsp" %>		
+		<!-- 코드종료 -->
+		<footer style="position:absolute; left: 0px; bottom: 20px; z-index: -100;">
+		<%@ include file="attach/footer.jsp"%>
+		</footer>
+
 <script type="text/javascript">
 /* 이미지 전환을 위한 자바스크립트 공간 */
 

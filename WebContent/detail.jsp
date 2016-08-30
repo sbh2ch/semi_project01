@@ -56,45 +56,104 @@
 						<div class="panel-body">
 							<div class="form">
 								<div class="col-md-12" align="left">
-
-
-
-
 									<fmt:formatDate value="${p.startDate}" pattern="yyyy-MM-dd" var="startDate" />
 									<fmt:formatDate value="${p.endDate}" pattern="yyyy-MM-dd" var="endDate" />
-									<label for="checkIn">체크인 </label> <br> <input type="date" name="checkIn" class="form-control" id="checkIn" width="50%" min="${startDate}" max="${endDate}" required> <br> <br> <label for="checkOut">체크아웃</label> <br> <input type="date"
-										name="checkOut" class="form-control" id="checkOut" width="50%" min="${startDate}" max="${endDate}" required> <br> <br> <label for="ppl">숙박인원</label> <br> <select name="ppl" class="form-control" id="ppl" required>
-										<c:forEach begin="1" end="${d.houseCapacity}" step="1" var="cnt">
-											<option value="${cnt}">${cnt}명</option>
-										</c:forEach>
-									</select>
+									<c:choose>
+										<c:when test="${user.email == s.hostEmail}">
+											<c:if test="${s.hostingStatus == 'W'}">
+												
+											</c:if>											
+											<c:if test="${s.hostingStatus == 'A'}">
+												
+											</c:if>											
+										</c:when>
+										<c:otherwise>
+											<label for="checkIn">체크인 </label>
+											<br>
+											<input type="date" name="checkIn" class="form-control" id="checkIn" width="50%" min="${startDate}" max="${endDate}" required>
+											<br>
+											<br>
+											<label for="checkOut">체크아웃</label>
+											<br>
+											<input type="date" name="checkOut" class="form-control" id="checkOut" width="50%" min="${startDate}" max="${endDate}" required>
+											<br>
+											<br>
+											<label for="ppl">숙박인원</label>
+											<br>
+											<select name="ppl" class="form-control" id="ppl" required>
+												<c:forEach begin="1" end="${d.houseCapacity}" step="1" var="cnt">
+													<option value="${cnt}">${cnt}명</option>
+												</c:forEach>
+											</select>
+										</c:otherwise>
+									</c:choose>
 								</div>
 								<br>
-								<!-- 경보 -->
+								<!-- 경보 시작 -->
 								<div id="myAlert1" style="display: none;">
-								<br>
-								<div class="alert alert-danger" role="alert" >
-									<strong>경고! </strong>&nbsp;&nbsp;체크인, 체크아웃 날짜를 확인하세요.
-								</div>
-								</div>
-								<!-- 경보 -->
-								<div class="col-md-12" align="right">
-									<c:if test="${s.hostingStatus == 'W'}">
-										<button type="submit" class="form-control btn btn-success">
-											<span class="fa fa-credit-card"></span>
-											&nbsp;&nbsp;즉시예약하기
-										</button>
-									</c:if>
-									<c:if test="${s.hostingStatus == 'A'}">
-										<p class="label label-warning" style="font-size:20px;"><span class="fa fa-comment"></span>&nbsp;&nbsp;예약중</p>
-									</c:if>
-									<c:if test="${s.hostingStatus == 'C'}">
-										<p class="label label-default" style="font-size:20px;"><span class="fa fa-github"></span>&nbsp;&nbsp;예약완료</p>
-									</c:if>
 									<br>
-									<c:if test="${not empty host.fb}">
-										<a style="margin-top: 10px" class="btn btn btn-social btn-facebook" href="https://www.facebook.com/${host.email}"><span class="fa fa-facebook"></span>호스트</a>
-									</c:if>
+									<div class="alert alert-danger" role="alert">
+										<strong>경고! </strong>&nbsp;&nbsp;체크인, 체크아웃 날짜를 확인하세요.
+									</div>
+								</div>
+								<!-- 경보 끝 -->
+								<div class="col-md-12">
+									<div class="col-md-6 col-md-offset-6">
+										<c:if test="${s.hostingStatus == 'W'}">
+											<c:choose>
+												<c:when test="${user.email != s.hostEmail}">
+													<button type="submit" style="width: 100%" class="form-control btn btn-success">
+														<span class="fa fa-credit-card"></span>
+														&nbsp;&nbsp;즉시예약하기
+													</button>
+												</c:when>
+												<c:otherwise>
+													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-info">
+														<span class="fa fa-pencil"></span>
+														&nbsp;&nbsp;글수정
+													</button>
+												</c:otherwise>
+											</c:choose>
+										</c:if>
+										<c:if test="${s.hostingStatus == 'A'}">
+											<c:choose>
+												<c:when test="${user.email == s.hostEmail}">
+													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-success">
+														<span class="fa fa-smile-o"></span>
+														&nbsp;&nbsp;수락
+													</button>
+													<br>
+													<br>
+													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-warning">
+														<span class="fa fa-times"></span>
+														&nbsp;&nbsp;거절
+													</button>
+												</c:when>
+												<c:when test="${user.email == s.guestEmail}">
+													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-success">
+														<span class="fa fa-meh-o"></span>
+														&nbsp;&nbsp;수락대기중
+													</button>
+												</c:when>
+												<c:otherwise>
+													<button type="submit" style="width: 100%" class="form-control btn btn-warning" disabled="disabled">
+														<span class="fa fa-close"></span>
+														&nbsp;&nbsp;예약중
+													</button>
+												</c:otherwise>
+											</c:choose>
+										</c:if>
+										<c:if test="${s.hostingStatus == 'C'}">
+											<button type="submit" style="width: 100%" class="form-control btn btn-default" disabled="disabled">
+												<span class="fa fa-github"></span>
+												&nbsp;&nbsp;예약완료
+											</button>
+										</c:if>
+										<br>
+										<c:if test="${user.email != s.hostEmail && not empty host.fb}">
+											<a style="margin-top: 10px; width: 100%;" class="btn btn btn-social btn-facebook" href="https://www.facebook.com/${host.email}"><span class="fa fa-facebook"></span>페이스북 방문</a>
+										</c:if>
+									</div>
 								</div>
 							</div>
 						</div>
