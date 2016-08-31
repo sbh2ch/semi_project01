@@ -343,8 +343,10 @@ var myCity;
 			document.getElementsByName("endDateH")[0].value = document.getElementsByName("endDate")[0].value;
 			document.getElementsByName("houseDescH")[0].value = document.getElementsByName("houseDesc")[0].value;
 			document.getElementsByName("hostDetailH")[0].value = document.getElementsByName("hostDetail")[0].value;			
-			document.getElementsByName("hostEmailH")[0].value = ${email};
-			/* alert("요금:"+document.getElementsByName("costH")[0].value+"\n"
+			document.getElementsByName("hostEmailH")[0].value = "${email}";
+			
+			/*
+			alert("요금:"+document.getElementsByName("costH")[0].value+"\n"
 					+"시작일:"+document.getElementsByName("startDateH")[0].value+"\n"
 					+"종료일:"+document.getElementsByName("endDateH")[0].value+"\n"
 					+"소개제목:"+document.getElementsByName("houseDescH")[0].value+"\n"

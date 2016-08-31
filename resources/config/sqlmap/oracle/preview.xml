@@ -25,8 +25,11 @@
 
 	<!-- 메인페이지 3개 출력용 쿼리 -->
 	<select id="selectThree" resultMap="previewMap">
-		select * from t86_1_host_preview where 3 >= rownum order by reg_date desc
+		SELECT ROWNUM AS rnum, A.email, A.regDate, A.startDate, A.endDate, A.imgPath, A.imgOriname, A.imgRealname, A.houseDesc, A.houseCost 
+		FROM (SELECT email, host_no AS hostNo, reg_date AS regDate, start_date AS startDate, end_date AS endDate, img_path AS imgPath, img_oriname AS imgOriname, img_realname AS imgRealname, house_desc AS houseDesc, house_cost AS houseCost FROM t86_1_host_preview ORDER BY reg_date DESC)A 
+		WHERE 3 >= ROWNUM
 	</select>
+	
 
 	<!-- 하나 select -->
 	<select id="selectOne" parameterType="int" resultMap="previewMap">
