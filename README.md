@@ -49,12 +49,12 @@ house_cost number(20) not null<br>
 <h4>위치 정보</h4>
 create table t86_1_host_location(<br>
 host_no number primary key,<br>
-nation varchar2(30) not null,<br>
-addr varchar2(30) not null,<br>
+nation varchar2(100) not null,<br>
+addr varchar2(100) not null,<br>
 zip_code varchar2(30) not null,<br>
-detail_addr varchar2(30)<br>
-X_point varchar2(30) not null<br>
-Y_point varchar2(30) not null<br>
+detail_addr varchar2(100)<br>
+X_point varchar2(100) not null<br>
+Y_point varchar2(100) not null<br>
 );<br>
 <br>
 <h4>상세정보</h4>
