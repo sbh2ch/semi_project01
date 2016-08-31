@@ -19,7 +19,8 @@
 		<selectKey keyProperty="hostNo" order="BEFORE" resultType="int">
 			select seq_temp.nextval from dual
 		</selectKey>
-		insert into t86_1_host_preview values(#{email}, #{hostNo}, sysdate,#{startDate}, #{endDate}, #{imgPath}, #{imgOriName}, #{imgRealName}, #{houseDesc}, #{houseCost})
+		insert into t86_1_host_preview (email, host_no, reg_date, start_date, end_date, img_path, img_oriname, img_realname, house_desc, house_cost) 
+		values (#{email}, #{hostNo}, #{regDate}, #{startDate}, #{endDate}, #{imgPath}, #{imgOriName}, #{imgRealName}, #{houseDesc}, #{houseCost})
 	</insert>
 
 	<!-- 메인페이지 3개 출력용 쿼리 -->
@@ -43,7 +44,7 @@
 
 	<update id="update" parameterType="preview">
 		update t86_1_host_preview 
-		set reg_date = sysdate, 
+		set reg_date = #{regDate}, 
 			start_date = #{startDate}, 
 			end_date = #{endDate}, 
 			img_path = #{imgPath}, 

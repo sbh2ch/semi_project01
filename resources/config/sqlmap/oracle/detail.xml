@@ -18,9 +18,8 @@
 	</select>
 	
 	<insert id="insert" parameterType="detail">
-		INSERT INTO T86_1_HOST_DETAIL VALUES(
- 		#{hostNo},#{houseType},#{roomType},#{houseCapacity},#{houseRoom},#{houseBed},#{houseBath},#{houseDetail}
-		)
+		INSERT INTO T86_1_HOST_DETAIL 
+		VALUES (#{hostNo},#{houseType},#{roomType},#{houseCapacity},#{houseRoom},#{houseBed},#{houseBath},#{houseDetail})
 	</insert>
 	
 	<update id="update" parameterType="detail">

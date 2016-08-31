@@ -131,7 +131,7 @@
 				<input name="startDate" type="date" onchange="calcDate()"/>에서
 				<input name="endDate" type="date" onchange="calcDate()" />까지<br>
 				총 요금 : <input name="costResult" type="text" /><br>
-				<input name="hostDesc" type="text" class="form-control" placeholder="여기에 한줄설명을 입력합니다"/><br>
+				<input name="houseDesc" type="text" class="form-control" placeholder="여기에 한줄설명을 입력합니다"/><br>
 				<textarea rows="6" cols="60" name="hostDetail">여기에 내용을 입력합니다</textarea><br>
 				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
 				<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="next" onclick="startSlide('next'); inputData('step3');">다음단계</a>			
@@ -163,14 +163,14 @@
 					<input type="hidden" name="costH" />
 					<input type="hidden" name="startDateH" />
 					<input type="hidden" name="endDateH" />
-					<input type="hidden" name="hostDescH" />
+					<input type="hidden" name="houseDescH" />
 					<input type="hidden" name="hostDetailH" />
 					<input type="hidden" name="hostEmailH" />
 					<!-- 4단계의 데이터 -->
 					<div id="dropbox" ondragenter="return false;"  ondragover="return false;"
        					ondrop="onDrop(event)" style=" width:100%; height: 300px; border: 5px dotted gray; border-radius:10%;" >여기에 드래그 앤 드랍</div>
 					<input type="file" name="img" />
-					<input type="hidden" name="hostStatusH" value="NO" />
+					<!--<input type="hidden" name="hostStatusH" value="NO" />-->
 					<br>
 					<br>
 					<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>

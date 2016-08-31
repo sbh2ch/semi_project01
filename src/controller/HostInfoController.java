@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -14,10 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 
+import detail.DetailDAO;
 import detail.DetailVO;
+import location.LocationDAO;
 import location.LocationVO;
 import member.MemberVO;
+import preview.PreviewDAO;
 import preview.PreviewVO;
+import status.StatusDAO;
 import status.StatusVO;
 
 @WebServlet("/hostInfo")
@@ -31,7 +36,12 @@ public class HostInfoController extends HttpServlet
 		PreviewVO pVO = new PreviewVO();
 		StatusVO sVO = new StatusVO();
 		MemberVO mVO = new MemberVO();
-				
+		
+		PreviewDAO pDAO = new PreviewDAO();
+		DetailDAO dDAO = new DetailDAO();
+		LocationDAO lDAO = new LocationDAO();
+		StatusDAO sDAO = new StatusDAO();
+						
 		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd");
 		String path = sdf.format(new Date());
 		ServletContext context = request.getServletContext(); 
@@ -53,9 +63,47 @@ public class HostInfoController extends HttpServlet
 		//String msg = mRequest.getParameter("msg");
 		//System.out.println("msg : " + msg);
 		// 데이터들 집어넣어 주기
+		
+		// 3단계 데이터 - 요금과날짜
+		// 미리보기에서 번호 자동생성이 있어서 부득이하게 3단계부터 해줌
+		pVO.setEmail(mRequest.getParameter("hostEmailH"));
+		pVO.setRegDate(new Date());
+		sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try
+		{
+			pVO.setStartDate(sdf.parse(mRequest.getParameter("startDateH")));
+			pVO.setEndDate(sdf.parse(mRequest.getParameter("endDateH")));
+		} catch (ParseException e)
+		{
+			e.printStackTrace();
+			System.out.println("데이터 변환에 무언가 문제가 발생");
+		}
+		pVO.setHouseCost(Integer.parseInt(mRequest.getParameter("costH")));
+		pVO.setHouseDesc(mRequest.getParameter("houseDescH"));
+		
+		// 4단계-파일 집어넣기
+		File file = mRequest.getFile("img");		
+		// 사용자가 선택한 파일이 있는지 체크
+		if(file != null)
+		{
+			// 사용자가 선택한 파일명
+			String oriFileName = mRequest.getOriginalFileName("img");
+//			System.out.println("oriFileName : " + oriFileName);
+			// 실제 서버에 저장된 파일명
+			String realFileName = mRequest.getFilesystemName("img");
+//			System.out.println("realFileName : " + realFileName);
+			// 파일의 사이즈
+			long size = file.length();
+//			System.out.println("fileSize : " + size);
+			pVO.setImgPath(path);
+			pVO.setImgOriName(oriFileName);
+			pVO.setImgRealName(realFileName);
+			//pDAO.insertFile(pVO);			
+		}
+		int hostNo = pDAO.insert(pVO);	// PreviewDAO 에서 시퀀스 번호를 따오므로 일단 먼저 해준다
+//		System.out.println(pVO.toString());
 		// 1단계 데이터 - Detail
 		//mRequest.getParameter("")
-		int hostNo = 0;	// dao로 sql쏴서 시퀀스로부터 얻어온 번호를 디테일,로케이션,미리보기,현황VO에 뿌려주기
 		dVO.setHostNo(hostNo);//dao에서 산출
 		dVO.setHouseType(mRequest.getParameter("houseTypeH"));
 		dVO.setRoomType(mRequest.getParameter("roomTypeH"));
@@ -64,14 +112,16 @@ public class HostInfoController extends HttpServlet
 		dVO.setHouseBed(Integer.parseInt(mRequest.getParameter("houseBedH")));
 		dVO.setHouseBath(Integer.parseInt(mRequest.getParameter("houseBathH")));
 		dVO.setHouseDetail(mRequest.getParameter("hostDetailH"));
+//		System.out.println(dVO.toString());
+		dDAO.insert(dVO);
 		// 1-테스트용sysout
-		System.out.println(mRequest.getParameter("houseTypeH"));
-		System.out.println(mRequest.getParameter("roomTypeH"));
-		System.out.println(Integer.parseInt(mRequest.getParameter("houseCapacityH")));
-		System.out.println(Integer.parseInt(mRequest.getParameter("houseRoomH")));
-		System.out.println(Integer.parseInt(mRequest.getParameter("houseBedH")));
-		System.out.println(Integer.parseInt(mRequest.getParameter("houseBathH")));
-		System.out.println(mRequest.getParameter("hostDetailH"));
+//		System.out.println(mRequest.getParameter("houseTypeH"));
+//		System.out.println(mRequest.getParameter("roomTypeH"));
+//		System.out.println(Integer.parseInt(mRequest.getParameter("houseCapacityH")));
+//		System.out.println(Integer.parseInt(mRequest.getParameter("houseRoomH")));
+//		System.out.println(Integer.parseInt(mRequest.getParameter("houseBedH")));
+//		System.out.println(Integer.parseInt(mRequest.getParameter("houseBathH")));
+//		System.out.println(mRequest.getParameter("hostDetailH"));
 		// 2단계 데이터 - Location
 		lVO.setHostNo(hostNo);
 		lVO.setNation(mRequest.getParameter("nationH"));
@@ -80,37 +130,27 @@ public class HostInfoController extends HttpServlet
 		lVO.setDetailAddr(mRequest.getParameter("detailAddrH"));
 		lVO.setxPoint(mRequest.getParameter("xPointH"));
 		lVO.setyPoint(mRequest.getParameter("yPointH"));
+		lDAO.insert(lVO);
 		// test sysout
-		System.out.println(mRequest.getParameter("nationH"));
-		System.out.println(mRequest.getParameter("addrH"));
-		System.out.println(mRequest.getParameter("zipCodeH"));
-		System.out.println(mRequest.getParameter("detailAddrH"));
-		System.out.println(mRequest.getParameter("xPointH"));
-		System.out.println(mRequest.getParameter("yPointH"));
-		// 3단계 데이터 - 요금과날짜
+//		System.out.println(mRequest.getParameter("nationH"));
+//		System.out.println(mRequest.getParameter("addrH"));
+//		System.out.println(mRequest.getParameter("zipCodeH"));
+//		System.out.println(mRequest.getParameter("detailAddrH"));
+//		System.out.println(mRequest.getParameter("xPointH"));
+//		System.out.println(mRequest.getParameter("yPointH"));
 		// 4단계 데이터 - 이미지와 설명
-		// 4단계-파일 집어넣기
-		File file = mRequest.getFile("img");
-		
-		
-		// 사용자가 선택한 파일이 있는지 체크
-		if(file != null)
-		{
-			// 사용자가 선택한 파일명
-			String oriFileName = mRequest.getOriginalFileName("img");
-			System.out.println("oriFileName : " + oriFileName);
-			// 실제 서버에 저장된 파일명
-			String realFileName = mRequest.getFilesystemName("img");
-			System.out.println("realFileName : " + realFileName);
-			// 파일의 사이즈
-			long size = file.length();
-			System.out.println("fileSize : " + size);
-			pVO.setImgPath(path);
-			pVO.setHostNo(hostNo);
-			pVO.setImgOriName(oriFileName);
-			pVO.setImgRealName(realFileName);
-			//pDAO.insertFile(pVO);			
-		}
+//		sVO.setCheckIn(checkIn);
+//		sVO.setCheckOut(checkOut);
+//		sVO.setStartDate(startDate);
+//		sVO.setEndDate(endDate);
+//		sVO.setImgPath(imgPath);
+//		sVO.setImgOriName(imgOriName);
+//		sVO.setImgRealName(imgRealName);
+//		sVO.setHouseDesc(houseDesc);
+//		sVO.setHouseCost(houseCost);
+		sVO.setHostNo(hostNo);
+		sVO.setHostEmail(mRequest.getParameter("hostEmailH"));
+		sDAO.insert(sVO);
 		
 		//response.sendRedirect("list");
 	}	

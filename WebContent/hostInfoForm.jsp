@@ -269,27 +269,27 @@ var myCity;
 	</script>
 <script type="text/javascript">
 	/* 상세정보 입력 관련 변수 */
-	var hostNum;
+	/* var hostNum;
 	var houseType;
 	var roomType;
 	var hostState;
 	var houseCapacity;
 	var houseRoom;
 	var houseBed;
-	var houseBath;
+	var houseBath; */
 	/* 위치정보 입력 관련 변수 */
-	var nation;
+	/* var nation;
 	var addr;
 	var zipCode;
 	var detailAddr;
 	var xPoint;
-	var yPoint;
+	var yPoint; */
 	/* 미리보기 입력 관련 변수 */
-	var email;
+	/* var email;
 	var hostDate;
 	var houseImg;
 	var houseDesc;
-	var houseCost;
+	var houseCost; */
 	
 	/* 입력 단계별 처리 함수 부분 */
 	function inputData(step)
@@ -314,13 +314,13 @@ var myCity;
 			document.getElementsByName("houseBedH")[0].value = document.getElementsByName("houseBed")[0].value;
 			document.getElementsByName("houseBathH")[0].value = document.getElementsByName("houseBath")[0].value;
 			// 테스트용 얼럿창
-			alert("집종류:"+document.getElementsByName("houseTypeH")[0].value+"\n"
+			/* alert("집종류:"+document.getElementsByName("houseTypeH")[0].value+"\n"
 					+"방종류:"+document.getElementsByName("roomTypeH")[0].value+"\n"
-					+"예약상태:"+document.getElementsByName("hostStatusH")[0].value+"\n"
+					//+"예약상태:"+document.getElementsByName("hostStatusH")[0].value+"\n"
 					+"수용인원:"+document.getElementsByName("houseCapacityH")[0].value+"\n"
 					+"침실갯수:"+document.getElementsByName("houseRoomH")[0].value+"\n"
 					+"침대갯수:"+document.getElementsByName("houseBedH")[0].value+"\n"
-					+"욕실갯수:"+document.getElementsByName("houseBathH")[0].value);
+					+"욕실갯수:"+document.getElementsByName("houseBathH")[0].value); */
 			break;
 		case "step2":
 			document.getElementsByName("nationH")[0].value = document.getElementsByName("nation")[0].value;
@@ -330,26 +330,26 @@ var myCity;
 			document.getElementsByName("xPointH")[0].value = document.getElementsByName("xPoint")[0].value;
 			document.getElementsByName("yPointH")[0].value = document.getElementsByName("yPoint")[0].value;
 			//테스트용 얼럿창
-			alert("국가:"+document.getElementsByName("nationH")[0].value+"\n"
+			/* alert("국가:"+document.getElementsByName("nationH")[0].value+"\n"
 					+"주소:"+document.getElementsByName("addrH")[0].value+"\n"
 					+"우편번호:"+document.getElementsByName("zipCodeH")[0].value+"\n"
 					+"상세주소:"+document.getElementsByName("detailAddrH")[0].value+"\n"
 					+"X좌표:"+document.getElementsByName("xPointH")[0].value+"\n"
-					+"Y좌표:"+document.getElementsByName("yPointH")[0].value);
+					+"Y좌표:"+document.getElementsByName("yPointH")[0].value); */
 			break;
 		case "step3":
 			document.getElementsByName("costH")[0].value = document.getElementsByName("cost")[0].value;
 			document.getElementsByName("startDateH")[0].value = document.getElementsByName("startDate")[0].value;
 			document.getElementsByName("endDateH")[0].value = document.getElementsByName("endDate")[0].value;
-			document.getElementsByName("hostDescH")[0].value = document.getElementsByName("hostDesc")[0].value;
+			document.getElementsByName("houseDescH")[0].value = document.getElementsByName("houseDesc")[0].value;
 			document.getElementsByName("hostDetailH")[0].value = document.getElementsByName("hostDetail")[0].value;			
 			document.getElementsByName("hostEmailH")[0].value = ${email};
-			alert("요금:"+document.getElementsByName("costH")[0].value+"\n"
+			/* alert("요금:"+document.getElementsByName("costH")[0].value+"\n"
 					+"시작일:"+document.getElementsByName("startDateH")[0].value+"\n"
 					+"종료일:"+document.getElementsByName("endDateH")[0].value+"\n"
-					+"소개제목:"+document.getElementsByName("hostDescH")[0].value+"\n"
+					+"소개제목:"+document.getElementsByName("houseDescH")[0].value+"\n"
 					+"소개내용:"+document.getElementsByName("hostDetailH")[0].value+"\n"
-					+"이메일:"+document.getElementsByName("hostEmailH")[0].value);
+					+"이메일:"+document.getElementsByName("hostEmailH")[0].value); */
 			break;
 		case "step4":
 			break;

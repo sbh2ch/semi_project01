@@ -15,6 +15,7 @@
 		insert into t86_1_hosting_status values(
 		#{hostNo}, #{hostEmail}, null, null, null, 'W'
 		)
+		<!-- 호스트넘버, 호스트이메일, 게스트이메일, 시작날, 끝날, 호스팅상태 -->
 	</insert>
 
 	<update id="hostingRequest" parameterType="status">
