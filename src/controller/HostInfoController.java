@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +44,7 @@ public class HostInfoController extends HttpServlet
 		LocationDAO lDAO = new LocationDAO();
 		StatusDAO sDAO = new StatusDAO();
 						
+		mVO.setEmail(request.getParameter("hostEmailH"));
 		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd");
 		String path = sdf.format(new Date());
 		ServletContext context = request.getServletContext(); 
@@ -66,7 +69,6 @@ public class HostInfoController extends HttpServlet
 		
 		// 3단계 데이터 - 요금과날짜
 		// 미리보기에서 번호 자동생성이 있어서 부득이하게 3단계부터 해줌
-		pVO.setEmail(mRequest.getParameter("hostEmailH"));
 		pVO.setRegDate(new Date());
 		sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try
@@ -80,6 +82,7 @@ public class HostInfoController extends HttpServlet
 		}
 		pVO.setHouseCost(Integer.parseInt(mRequest.getParameter("costH")));
 		pVO.setHouseDesc(mRequest.getParameter("houseDescH"));
+		pVO.setEmail(mRequest.getParameter("hostEmailH"));
 		
 		// 4단계-파일 집어넣기
 		File file = mRequest.getFile("img");		
@@ -101,7 +104,6 @@ public class HostInfoController extends HttpServlet
 			//pDAO.insertFile(pVO);			
 		}
 		int hostNo = pDAO.insert(pVO);	// PreviewDAO 에서 시퀀스 번호를 따오므로 일단 먼저 해준다
-//		System.out.println(pVO.toString());
 		// 1단계 데이터 - Detail
 		//mRequest.getParameter("")
 		dVO.setHostNo(hostNo);//dao에서 산출
@@ -151,7 +153,14 @@ public class HostInfoController extends HttpServlet
 		sVO.setHostNo(hostNo);
 		sVO.setHostEmail(mRequest.getParameter("hostEmailH"));
 		sDAO.insert(sVO);
-		
-		//response.sendRedirect("list");
+		// 입력 완료되면 바로 호스팅 내역 페이지로 보내버림.
+		StatusDAO sDao = new StatusDAO();
+		List<StatusVO> gList = sDao.joinGuest(mRequest.getParameter("hostEmailH"));
+		List<StatusVO> hList = sDao.joinHost(mRequest.getParameter("hostEmailH"));
+		request.setAttribute("gList", gList);
+		request.setAttribute("hList", hList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("record.jsp");
+		rd.forward(request, response);
 	}	
 }

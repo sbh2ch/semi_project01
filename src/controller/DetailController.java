@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import detail.DetailDAO;
+import location.LocationDAO;
 import member.MemberDAO;
 import preview.PreviewDAO;
 import status.StatusDAO;
@@ -23,6 +24,7 @@ public class DetailController extends HttpServlet {
 		int hostNo = Integer.parseInt(req.getParameter("hostNo"));
 		DetailDAO dDao = new DetailDAO();
 		StatusDAO sDao = new StatusDAO();
+		LocationDAO lDao = new LocationDAO();
 		PreviewDAO fDao = new PreviewDAO();
 		MemberDAO mDao = new MemberDAO();
 		StatusVO s = sDao.selectOne(hostNo);
@@ -30,7 +32,7 @@ public class DetailController extends HttpServlet {
 		req.setAttribute("d", dDao.selectOne(hostNo));
 		req.setAttribute("s", s);
 		req.setAttribute("p", fDao.selectOne(hostNo));
-		
+		req.setAttribute("l", lDao.selectOne(hostNo));
 		RequestDispatcher rd = req.getRequestDispatcher("detail.jsp");
 		rd.forward(req, resp);
 	}

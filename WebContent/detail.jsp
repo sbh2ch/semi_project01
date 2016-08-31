@@ -223,6 +223,8 @@
 					<br> <br> <br>
 					<h4 style="font-weight: bold">상세 설명</h4>
 					<br>
+					<span>${l.addr}</span><br>
+					<span>${l.detailAddr}</span><br>
 					<span>${d.houseDetail}</span>
 					<br>
 					<hr>
