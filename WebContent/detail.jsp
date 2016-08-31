@@ -43,6 +43,19 @@
 
 			return true;
 		}
+		
+		function confirmDel(hostNo)
+		{
+			var isDel = confirm("정말로 해당 글을 삭제하시겠습니까?");
+			//alert(hostNo);
+			if(isDel == true)
+			{
+				location.replace("/semiProject01/hostDelete?hostNo=" + hostNo);
+			}else
+			{
+				return;
+			}
+		}
 	</script>
 
 
@@ -108,10 +121,15 @@
 													</button>
 												</c:when>
 												<c:otherwise>
-													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-info">
+													<form></form>
+													<button type="button" onclick="confirmDel(${s.hostNo})" style="width: 100%" class="form-control btn btn-info">
+														<span class="fa fa-pencil"></span>
+														&nbsp;&nbsp;글삭제
+													</button>
+													<button type="button" onclick="location.href='/semiProject01/hostUpdate?hostNo=${s.hostNo}'" style="width: 100%" class="form-control btn btn-info">
 														<span class="fa fa-pencil"></span>
 														&nbsp;&nbsp;글수정
-													</button>
+													</button>													
 												</c:otherwise>
 											</c:choose>
 										</c:if>
