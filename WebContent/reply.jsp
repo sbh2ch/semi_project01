@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -32,20 +33,34 @@
 
 	<div class="container">
 		<!--  코드시작 -->
-		<div id="comment">
+		
+		<div id="reply">
 			<form method="post" action="replyReg">
-			<table width="400px">
-				<tr>
-					<td><c:out value="${hostEmail}" /></td>
-					<td><textarea name="" rows="5" cols="100"></textarea></td>
-					<td><input type="submit" value="등록"></td>
-				</tr>
-			</table>
-			
+				<table class="replyTable">
+					<tr>
+						<td><span class="replyInline">
+									<input type="hidden" id="name" name="name" value="${user.name}">
+									<input type="hidden" id="replyEmail" name="replyEmail" value="${user.replyEmail}"/>
+									<input type="hidden" id="hostEmail" name="hostEmail" value="${user.hostEmail}">
+								    <textarea id="content" name="content" style="width: 100%" rows="4"></textarea>
+									<button type="submit" id="submit" >후기등록</button>
+						</span></td>
+						<td><c:out value="${hostEmail}"/></td>
+					</tr>	
+				</table>
+				<table class="table table-condensed">
+					<tr>
+						<td><span style='float: right'>
+								<button type="button" id="update" class="">수정</button>
+								<button type="button" id="delete" class="">삭제</button>
+								<button type="button" id="write" class="">글쓰기</button>
+						</span></td>
+					</tr>
+				</table>
 			</form>
 		</div>
-		
-		
+
+
 
 
 
@@ -54,7 +69,8 @@
 		</footer>
 	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>

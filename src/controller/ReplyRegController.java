@@ -16,18 +16,22 @@ import reply.ReplyVO;
 public class ReplyRegController extends HttpServlet{
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	//	int no = Integer.parseInt(request.getParameter("hostNo"));
-		ReplyVO rvo = new ReplyVO();
-		rvo.setHostEmail("email");
-		rvo.setContent("content");
-		rvo.setName("jin mother");
-		rvo.setReplyEmail("fuckjin");
-		
-		ReplyDAO dao = new ReplyDAO();
-		dao.insertReply(rvo);
-	
-		RequestDispatcher rd = request.getRequestDispatcher("reply.jsp");
-		rd.forward(request, response);
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+		int no = Integer.parseInt(request.getParameter("hostNo"));
+		 
+		 ReplyVO rvo = new ReplyVO();
+		 ReplyDAO dao = new ReplyDAO();
+		  
+		 rvo.setHostNo(no);
+		 rvo.setName(request.getParameter("name"));
+		 rvo.setEmail(request.getParameter("email"));
+		 rvo.setContent(request.getParameter("content"));
+		 
+		 dao.insertReply(rvo);
+		 
+		 response.sendRedirect("detail?no=" +no);
 	}
+	
+	
 }

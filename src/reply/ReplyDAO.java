@@ -17,6 +17,17 @@ public class ReplyDAO {
 		
 	}
 
+	public void deleteReply(int hostNo) {
+		session.delete("myReply.deleteReply", hostNo);
+		session.commit();
+		
+	}
+
+	public void updateReply(ReplyVO rvo) {
+		session.update("myReply.updateComment", rvo);
+		session.commit();
+	}
+
 
 
 }
