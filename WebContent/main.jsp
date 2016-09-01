@@ -40,7 +40,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<form class="form-inline">
+				<form class="form-inline" action="searchHost" method="post">
 					<div class="form-group">
 						<input type="text" class="form-control" name="destination" placeholder="어디로 가세요?">
 					</div>
@@ -52,11 +52,11 @@
 						<input type="date" class="form-control" name="destDate">
 					</div>
 					<div class="form-group">
-						<select class="form-control col-md-2">
+						<select class="form-control col-md-2" name="findCapacity">
 							<c:forEach begin="1" end="16" var="n">
-								<option>숙박인원 ${n}명</option>
+								<option value="${n}">숙박인원 ${n}명</option>
 							</c:forEach>
-							<option>숙박인원 16+명</option>
+							<option value="17">숙박인원 16+명</option>
 						</select>
 					</div>
 					<div class="form-group">
