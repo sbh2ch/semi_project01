@@ -21,7 +21,7 @@
 	
 	<insert id="insert" parameterType="location">
 		INSERT INTO t86_1_host_location VALUES(
- 		#{hostNo},#{nation},#{addr},#{detailAddr},#{zipCode},#{xPoint},#{yPoint}
+ 		#{hostNo},#{nation},#{addr},#{zipCode},#{detailAddr},#{xPoint},#{yPoint}
 		)
 	</insert>
 	
