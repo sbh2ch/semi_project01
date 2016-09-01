@@ -57,4 +57,24 @@
 			house_cost = #{houseCost} 
 		where host_no = #{hostNo}
 	</update>
+	<!-- 메인화면 검색시 반환해주는 쿼리 -->
+	<select id="selectDest" resultType="find" parameterType="find">
+		select 
+			de.host_no as hostNo,
+			pre.reg_date as regDate,
+			pre.img_path as imgPath,
+			pre.img_realname as imgRealName,
+			pre.house_desc as houseDesc,
+			pre.house_cost as houseCost,
+			loca.addr,
+			loca.x_point as xPoint,
+			loca.y_point as yPoint
+		from T86_1_HOST_DETAIL de, T86_1_HOST_PREVIEW pre, T86_1_HOST_LOCATION loca, T86_1_HOSTING_STATUS stat
+		where de.host_no = pre.host_no and pre.host_no = loca.host_no and loca.host_no = stat.host_no
+		and de.house_capacity >= #{findCapacity}
+		and stat.host_email != #{myEmail}
+		and loca.addr like '%' || #{destAddr} || '%'
+		and pre.start_date >= to_date(#{departDate}, 'yyyy-mm-dd') and to_date(#{destDate}, 'yyyy-mm-dd') >= pre.end_date
+		and stat.hosting_status = 'W'
+	</select>
 </mapper>

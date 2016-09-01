@@ -16,7 +16,7 @@
 		select * from t86_1_host_location where host_no = #{hostNo}
 	</select>
 	<select id="selectAll" resultMap="locationMap">
-    	select * from t86_1_host_location
+    	select * from t86_1_host_location order by host_no desc
     </select>
 	
 	<insert id="insert" parameterType="location">
