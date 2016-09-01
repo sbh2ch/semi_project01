@@ -74,7 +74,7 @@
 		and de.house_capacity >= #{findCapacity}
 		and stat.host_email != #{myEmail}
 		and loca.addr like '%' || #{destAddr} || '%'
-		and pre.start_date >= to_date(#{departDate}, 'yyyy-mm-dd') and to_date(#{destDate}, 'yyyy-mm-dd') >= pre.end_date
+		and pre.start_date >= to_date(#{departDate}, 'yyyy-mm-dd') and pre.end_date >=  to_date(#{destDate}, 'yyyy-mm-dd') 
 		and stat.hosting_status = 'W'
 	</select>
 </mapper>
