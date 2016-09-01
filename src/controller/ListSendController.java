@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import member.MemberVO;
-import msgBoard.MsgDAO;
-import msgBoard.MsgVO;
+import msg.MsgDAO;
+import msg.Msg;
 
 @WebServlet("/listSend")
 public class ListSendController extends HttpServlet {
@@ -22,11 +22,10 @@ public class ListSendController extends HttpServlet {
 		MsgDAO dao = new MsgDAO();
 		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
 		
-		List<MsgVO> list = dao.selectSend(user.getEmail());
-
+		List<Msg> list = dao.selectSend(user.getName());
 		request.setAttribute("list", list);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/msgSend.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("msgSend.jsp");
+		System.out.println("listSend 호출됌");
 		rd.forward(request, response);
 
 	}

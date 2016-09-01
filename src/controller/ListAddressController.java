@@ -11,23 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import member.MemberVO;
-import msgBoard.MsgDAO;
-import msgBoard.MsgVO;
+import msg.MsgDAO;
+import msg.Msg;
 
 @WebServlet("/listAddress")
 public class ListAddressController extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MsgDAO dao = new MsgDAO();
 		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
 		
-		List<MsgVO> list = dao.selectAddress(user.getEmail());
-
+		List<Msg> list = dao.selectAddress(user.getName());
+		System.out.println(user.getEmail());
 		request.setAttribute("list", list);
-
-		RequestDispatcher rd = request.getRequestDispatcher("msgAdress.jsp");
+		System.out.println(list.size());
+		RequestDispatcher rd = request.getRequestDispatcher("msgAddress.jsp");
 		rd.forward(request, response);
 
 	}
