@@ -3,25 +3,25 @@ package reply;
 import java.util.Date;
 
 public class ReplyVO {
-	private int replyNo;
-	private String hostEmail;
+	private int no;
+	private int hostNo;
 	private String name;
-	private String replyEmail;
+	private String email;
 	private String content;
 	private Date regDate;
 	
 	
 	public int getReplyNo() {
-		return replyNo;
+		return no;
 	}
 	public void setReplyNo(int replyNo) {
-		this.replyNo = replyNo;
+		this.no = replyNo;
 	}
-	public String getHostEmail() {
-		return hostEmail;
+	public int getHostNo() {
+		return hostNo;
 	}
-	public void setHostEmail(String hostEmail) {
-		this.hostEmail = hostEmail;
+	public void setHostNo(int hostNo) {
+		this.hostNo = hostNo;
 	}
 	public String getName() {
 		return name;
@@ -29,11 +29,11 @@ public class ReplyVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getReplyEmail() {
-		return replyEmail;
+	public String getEmail() {
+		return email;
 	}
-	public void setReplyEmail(String replyEmail) {
-		this.replyEmail = replyEmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getContent() {
 		return content;
@@ -47,6 +47,8 @@ public class ReplyVO {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+	
+	
 	
 	
 }
