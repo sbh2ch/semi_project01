@@ -22,7 +22,6 @@ public class MainController extends HttpServlet {
 		PreviewDAO pDao = new PreviewDAO();
 		String auth = req.getParameter("auth");
 		if(auth != null){
-			System.out.println(auth);
 			req.setAttribute("authFail", auth);
 		}
 		
