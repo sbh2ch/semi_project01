@@ -33,6 +33,8 @@ var map;
 var contentString;
 var geocoder;
 var myCity;
+var X_point;
+var Y_point;
 	function returnNation(arr)
 	{
 		for(var i = 0 ; i < arr[0].address_components.length ; i++)
@@ -67,8 +69,8 @@ var myCity;
 			http://openapi.map.naver.com/api/geocode.php?key=f32441ebcd3cc9de474f8081df1e54e3&encoding=euc-kr&coord=LatLng&query=서울특별시 강남구 강남대로 456
                        위와같이 링크에서 뒤에 주소를 적으면 x,y 값을 구할수 있다.
 		*/
-		var X_point			= "37.49794199999999";		// Y 좌표
-		var Y_point			= "127.02762099999995";		// X 좌표
+		//X_point			= "37.49794199999999";		// Y 좌표
+		//Y_point			= "127.02762099999995";		// X 좌표
 
 		var zoomLevel		= 16;						// 지도의 확대 레벨 : 숫자가 클수록 확대됨
 
@@ -267,7 +269,69 @@ var myCity;
 		});
 	}
 	</script>
+
+</head>
+
+<body style="min-height: 800px; overflow: hidden;">
+		<%@ include file="attach/header.jsp"%>
+		<!-- 코드시작 -->
+		<%@ include file="houseForm.jsp" %>		
+		<!-- 코드종료 -->
+		<footer style="position:absolute; left: 0px; bottom: 20px; z-index: -100;">
+		<%@ include file="attach/footer.jsp"%>
+		</footer>
 <script type="text/javascript">
+	var thisMode = "";		
+	(function isModify(bool)
+	{
+		thisMode = bool;
+		//alert(bool);
+		//alert(thisMode);
+		if(thisMode == 'InsertMode')		// 입력일때
+		{
+			X_point	= "37.49794199999999";		// Y 좌표
+			Y_point	= "127.02762099999995";		// X 좌표
+			//alert("입력모드" + X_point + Y_point);
+		}
+		else if(thisMode == 'UpdateMode')	// 수정일때
+		{
+			X_point = '${l.xPoint}';
+			Y_point = '${l.yPoint}';
+			//alert("수정모드" + X_point + Y_point);
+			/* 1단계 데이터들 로딩 */
+			document.getElementsByName("houseType")[0].value = '${d.houseType}';
+			var roomTypeRadio = document.getElementsByName("roomType");
+			var rType = '${d.roomType}';
+			for(var i = 0 ; i < roomTypeRadio.length ; i++)
+			{
+				if(roomTypeRadio[i].value == rType)
+				{
+					roomTypeRadio[i].checked = true;
+				}
+			}
+			document.getElementsByName("houseCapacity")[0].value = '${d.houseCapacity}';
+			document.getElementsByName("houseRoom")[0].value = '${d.houseRoom}';
+			document.getElementsByName("houseBed")[0].value = '${d.houseBed}';
+			document.getElementsByName("houseBath")[0].value = '${d.houseBath}';
+			/* 2단계 데이터 로딩 */
+			document.getElementsByName("nation")[0].value = '${l.nation}';
+			document.getElementsByName("addr")[0].value = '${l.addr}';
+			document.getElementsByName("zipCode")[0].value = '${l.zipCode}';
+			document.getElementsByName("detailAddr")[0].value = '${l.detailAddr}';
+			document.getElementsByName("xPoint")[0].value = X_point;
+			document.getElementsByName("yPoint")[0].value = Y_point;
+			/* 3단계 데이터 로딩 */
+			document.getElementsByName("cost")[0].value = '${p.houseCost}';
+			document.getElementsByName("startDate")[0].value = '${sDate}';
+			document.getElementsByName("endDate")[0].value = '${eDate}';
+			document.getElementsByName("houseDesc")[0].value = '${p.houseDesc}';
+			document.getElementsByName("hostDetail")[0].value = '${d.houseDetail}';
+			//document.getElementsByName("hostEmailH")[0].value = "${email}";
+			/* 4단계 데이터 로딩 */
+			document.getElementById("form").action = "hostUpdate";
+			document.getElementById("submitBtn").value = "수정완료";
+		}
+	})('${istrue}');
 	/* 상세정보 입력 관련 변수 */
 	/* var hostNum;
 	var houseType;
@@ -293,7 +357,7 @@ var myCity;
 	
 	/* 입력 단계별 처리 함수 부분 */
 	function inputData(step)
-	{
+	{		
 		switch(step)
 		{
 		case "step1":
@@ -408,17 +472,6 @@ var myCity;
     //이미지 로딩 시 추가 처리할 로직 기입(사이즈 조절 등)           
   }, true);  */         
 </script>
-</head>
-
-<body style="min-height: 800px; overflow: hidden;">
-		<%@ include file="attach/header.jsp"%>
-		<!-- 코드시작 -->
-		<%@ include file="houseForm.jsp" %>		
-		<!-- 코드종료 -->
-		<footer style="position:absolute; left: 0px; bottom: 20px; z-index: -100;">
-		<%@ include file="attach/footer.jsp"%>
-		</footer>
-
 <script type="text/javascript">
 /* 이미지 전환을 위한 자바스크립트 공간 */
 

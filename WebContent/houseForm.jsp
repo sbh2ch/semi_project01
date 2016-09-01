@@ -143,7 +143,7 @@
 				<h3>마지막으로,<br>여행객에게 보여줄 사진을 업로드 합니다.</h3>
 				<br>					
 			<!-- 여기서 form 을 설정해서 그간 입력한 정보를 모조리 전송 -->
-				<form action="hostInfo" method="post" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data">					
+				<form id="form" action="hostInfo" method="post" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data">					
 					<!-- 이전 단계에서 입력되있던 데이터들을 여기에 모두 모음 -->
 					<!-- 1단계의 데이터 -->
 					<input type="hidden" name="houseTypeH" />
@@ -170,11 +170,11 @@
 					<div id="dropbox" ondragenter="return false;"  ondragover="return false;"
        					ondrop="onDrop(event)" style=" width:100%; height: 300px; border: 5px dotted gray; border-radius:10%;" >여기에 드래그 앤 드랍</div>
 					<input type="file" name="img" />
-					<!--<input type="hidden" name="hostStatusH" value="NO" />-->
+					<input type="hidden" name="hostNoH" value="${p.hostNo}" />
 					<br>
 					<br>
 					<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>
-					<input class="btn btn-lg btn-primary" type="submit" value="입력완료" />
+					<input id="submitBtn" class="btn btn-lg btn-primary" type="submit" value="입력완료" />
 				</form>			
 			</div>		  
 		  <!-- Carousel nav -->

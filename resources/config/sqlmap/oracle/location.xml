@@ -25,7 +25,7 @@
 		)
 	</insert>
 	
-	<update id="update" parameterType="int">
+	<update id="update" parameterType="location">
 		update t86_1_host_location 
 		set 
 			nation = #{nation},

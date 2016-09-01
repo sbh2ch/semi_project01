@@ -110,7 +110,7 @@
 													</button>
 												</c:when>
 												<c:otherwise>
-													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-info">
+													<button type="button" onclick="location.href='/semiProject01/hostUpdate?hostNo=${s.hostNo}'" style="width: 100%" class="form-control btn btn-info">
 														<span class="fa fa-pencil"></span>
 														&nbsp;&nbsp;글수정
 													</button>
