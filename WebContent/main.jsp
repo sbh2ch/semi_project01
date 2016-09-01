@@ -13,6 +13,7 @@
 <link rel="icon" href="../../favicon.ico">
 <title>GroundBnB</title>
 
+
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <link href="css/jumbotron.css" rel="stylesheet">
@@ -21,7 +22,11 @@
 </head>
 
 <body>
-
+	<c:if test="${not empty authFail}">
+		<script>
+			alert("로그인이 필요합니다.");
+		</script>
+	</c:if>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<%@ include file="attach/header.jsp"%>

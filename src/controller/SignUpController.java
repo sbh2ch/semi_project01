@@ -14,7 +14,6 @@ import member.MemberVO;
 @WebServlet("/signUp")
 public class SignUpController extends HttpServlet {
 
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MemberDAO mDao = new MemberDAO();
@@ -29,11 +28,12 @@ public class SignUpController extends HttpServlet {
 			resp.sendRedirect("/semiProject01/signUpForm?msg=Email is invalid");
 		} else if (password.length() < 4) {
 			resp.sendRedirect("/semiProject01/signUpForm?msg=Password is invalid");
-		}
-		user = new MemberVO(email, password, name, null);
-		mDao.insertNM(user);
+		} else {
+			user = new MemberVO(email, password, name, null);
+			mDao.insertNM(user);
 
-		resp.sendRedirect("/semiProject01/main");
+			resp.sendRedirect("/semiProject01/main");
+		}
 	}
 
 }
