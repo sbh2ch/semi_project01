@@ -21,7 +21,7 @@ public class MainController extends HttpServlet {
 		PreviewDAO pDao = new PreviewDAO();
 		List<PreviewVO> pList = pDao.selectThree();
 		req.setAttribute("pList", pList);
-		
+
 		RequestDispatcher rd = req.getRequestDispatcher("main.jsp");
 		rd.forward(req, resp);
 	}

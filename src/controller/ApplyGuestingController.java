@@ -34,13 +34,11 @@ public class ApplyGuestingController extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
 		s.setGuestEmail(guestEmail);
 		s.setCheckIn(checkIn);
 		s.setCheckOut(checkOut);
 		s.setHostingStatus("A");
 		
-		System.out.println(s);
 		
 		sDao.hostingRequest(s);
 

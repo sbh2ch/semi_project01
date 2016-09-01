@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import detail.DetailDAO;
 import detail.DetailVO;
@@ -44,7 +45,8 @@ public class HostUpdateController extends HttpServlet
 				req, 
 				realUPath,			
 				1024 * 1024 * 100,	
-				"UTF-8");
+				"UTF-8",
+				new DefaultFileRenamePolicy());
 		
 		int hostNo = Integer.parseInt(mRequest.getParameter("hostNoH"));
 		System.out.println("파라미터:"+mRequest.getParameter("hostNoH"));

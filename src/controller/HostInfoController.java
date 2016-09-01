@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import detail.DetailDAO;
 import detail.DetailVO;
@@ -60,7 +61,9 @@ public class HostInfoController extends HttpServlet
 				request, 
 				realPath,			// 서버에 저장할 패스 
 				1024 * 1024 * 100,	// 저장할 파일의 최대 사이즈 
-				"UTF-8");			// 요청에 대한 인코딩 처리방식.
+				"UTF-8",
+				new DefaultFileRenamePolicy()
+				);			// 요청에 대한 인코딩 처리방식.
 									// 파일이름이 같을 경우의 정책, 생략하면 디폴트
 				
 		//String msg = mRequest.getParameter("msg");

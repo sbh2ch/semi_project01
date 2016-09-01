@@ -58,7 +58,7 @@
 								<div class="col-md-12" align="left">
 									<fmt:formatDate value="${p.startDate}" pattern="yyyy-MM-dd" var="startDate" />
 									<fmt:formatDate value="${p.endDate}" pattern="yyyy-MM-dd" var="endDate" />
-									<input type="hidden" name="guestEamil" value="${user.email}">
+									<input type="hidden" name="guestEmail" value="${user.email}">
 									<input type="hidden" name="hostNo" value="${s.hostNo}">
 									<c:choose>
 										<c:when test="${user.email == s.hostEmail}">
@@ -117,9 +117,10 @@
 													<br>
 													<br>
 													<button type="button" onclick="location.href='/semiProject01/deleteBoard?hostNo=${s.hostNo}'" style="width: 100%" class="form-control btn btn-danger">
-														<span class="fa fa-pencil"></span>
+														<span class="fa fa-times"></span>
 														&nbsp;&nbsp;글삭제
 													</button>
+													<br>
 												</c:otherwise>
 											</c:choose>
 										</c:if>
@@ -132,7 +133,7 @@
 													<div class="col-md-12" align="left">
 													<label>신청인 </label>
 													<br>
-													<span>${guestName}</span>
+													<span>${guest.name}</span>
 													<br>
 													<br>
 													<label>체크인</label>
@@ -176,6 +177,7 @@
 												<span class="fa fa-github"></span>
 												&nbsp;&nbsp;예약완료
 											</button>
+											<br>
 										</c:if>
 										<br>
 										<c:if test="${user.email != s.hostEmail && not empty host.fb}">
