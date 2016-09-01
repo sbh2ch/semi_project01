@@ -12,6 +12,7 @@
 		<typeAlias alias="member" type="member.MemberVO" />
 		<typeAlias alias="location" type="location.LocationVO" />
 		<typeAlias alias="preview" type="preview.PreviewVO" />
+		<typeAlias alias="find" type="preview.FindVO" />
 		<typeAlias alias="detail" type="detail.DetailVO" />
 		<typeAlias alias="status" type="status.StatusVO" />
 		<typeAlias alias="reply" type="reply.ReplyVO" />
