@@ -19,8 +19,8 @@ public class HostInfoFormController extends HttpServlet
 	{
 		MemberVO user = (MemberVO) request.getSession().getAttribute("user");
 		String uEmail = user.getEmail();
-		
 		request.setAttribute("email", uEmail);
+		request.setAttribute("istrue", "InsertMode");
 		RequestDispatcher rd = request.getRequestDispatcher("hostInfoForm.jsp");
 		rd.forward(request, response);
 	}	
