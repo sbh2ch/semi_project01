@@ -56,8 +56,8 @@
 		</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-1">
-  		<a type="button" class="btn btn-primary btn-lg" href='/semiProject01/listAddress'>받은 쪽지함</a>
-		<a type="button" class="btn btn-default btn-lg" href='/semiProject01/listSend'>보낸 쪽지함</a>
+  		<a type="button" class="btn btn-default btn-lg" href='/semiProject01/listAddress'>받은 쪽지함</a>
+		<a type="button" class="btn btn-primary btn-lg" href='/semiProject01/listSend'>보낸 쪽지함</a>
   
   <table class="table table-striped" width='85%' border='1'>
 			<tr>
@@ -65,11 +65,11 @@
 				<th width='20%'>수신자</th>
 				<th>내용</th>
 			</tr>
-			<c:forEach var="board" items="${list}">
+			<c:forEach var="aa" items="${list}">
 				<tr>
-					<td width='15%'><c:out value="${msg.no}" /></td>
-					<td width='20%'><c:out value="${msg.writer}" /></td>
-					<td><c:out value="${msg.messege}" /></td>
+					<td width='15%'><c:out value="${aa.no}" /></td>
+					<td width='20%'><c:out value="${aa.addressee}"/></td>
+					<td><c:out value="${aa.message}"/></td>
 				</tr>
 			</c:forEach>
 			<c:if test="${empty list}">
@@ -79,18 +79,7 @@
 			</c:if>
 		</table></div>
   		<div class="col-md-3 col-md-offset-1">
-  			<form method='post' action='write' encType="multipart/form-data">
-				<div class="form-group">
-    				<input type='text' name='writer' class="form-control" id="exampleInputEmail3" placeholder="${user.name}" readonly>
- 			    </div>
-				<div class="form-group">
-    				<label class="sr-only" for="exampleInputEmail3">수신자를 입력하세요</label>
-    				<input type='text' name='writer' class="form-control" id="exampleInputEmail3" placeholder="수신자를 입력하세요">
- 			    </div>
-				내용 : <textarea name='content' class="form-control" rows="3"></textarea><br>
-				<button type="submit" class="btn btn-default">등록</button>
-			</form>
-		
+  			
 		</div>
 </div>
 
