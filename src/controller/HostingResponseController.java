@@ -30,7 +30,8 @@ public class HostingResponseController extends HttpServlet {
 			s.setEndDate(null);
 			s.setHostingStatus("W");
 		}
-		
-		resp.sendRedirect("/semiProject01/detail?hostNo="+hostNo);
+		sDao.hostingResponse(s);
+
+		resp.sendRedirect("/semiProject01/detail?hostNo=" + hostNo);
 	}
 }

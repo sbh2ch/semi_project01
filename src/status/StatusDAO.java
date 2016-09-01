@@ -65,6 +65,8 @@ public class StatusDAO {
 		session.delete("myStatus.delete", hostNo);
 	}
 	
+	
+	
 	public List<StatusVO> joinGuest(String guestEmail){
 		return session.selectList("myStatus.joinGuest", guestEmail);
 	}
