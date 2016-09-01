@@ -53,7 +53,7 @@
 			s.GUEST_EMAIL as guestEmail, 
 			s.START_DATE as checkIn, 
 			s.END_DATE as checkOut, 
-			s.HOSTING_STATUS as hostingStatus, 
+			s.HOSTING_STATUS as hostingStatus,
 			p.REG_DATE as regDate, 
 			p.START_DATE as startDate, 
 			p.END_DATE as endDate, 
