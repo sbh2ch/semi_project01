@@ -27,7 +27,6 @@ public class LocationDAO
 
 	public void delete(int hostNo) {
 		session.delete("myLocation.delete", hostNo);
-		session.commit();
 	}
 
 	public List<LocationVO> selectAll() {

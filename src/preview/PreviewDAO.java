@@ -1,5 +1,6 @@
 package preview;
 
+import java.io.File;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,11 +26,6 @@ public class PreviewDAO {
 		session.commit();
 	}
 
-	public void delete(int hostNo) {
-		session.delete("myPreview.delete", hostNo);
-		session.commit();
-	}
-
 	public List<PreviewVO> selectAll() {
 		return session.selectList("myPreview.selectAll");
 	}
@@ -40,6 +36,14 @@ public class PreviewDAO {
 
 	public PreviewVO selectOne(int hostNo) {
 		return session.selectOne("myPreview.selectOne", hostNo);
+	}
+
+	public void delete(PreviewVO selectOne, String realPath) {
+		File delFile = new File(realPath);
+		delFile.delete();
+		
+		session.delete("myPreview.delete", selectOne.getHostNo());
+		session.commit();
 	}
 
 }

@@ -63,7 +63,6 @@ public class StatusDAO {
 
 	public void delete(int hostNo) {
 		session.delete("myStatus.delete", hostNo);
-		session.commit();
 	}
 	
 	public List<StatusVO> joinGuest(String guestEmail){

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import detail.DetailDAO;
 import member.MemberDAO;
+import member.MemberVO;
 import preview.PreviewDAO;
 import status.StatusDAO;
 import status.StatusVO;
@@ -26,6 +27,12 @@ public class DetailController extends HttpServlet {
 		PreviewDAO fDao = new PreviewDAO();
 		MemberDAO mDao = new MemberDAO();
 		StatusVO s = sDao.selectOne(hostNo);
+		
+		System.out.println(s.getGuestEmail());
+		if(s.getGuestEmail() != null){ // 게스트 있을시 name값 set!
+			req.setAttribute("guest", mDao.selectOne(s.getGuestEmail()));
+		}
+		
 		req.setAttribute("host", mDao.selectOne(s.getHostEmail()));
 		req.setAttribute("d", dDao.selectOne(hostNo));
 		req.setAttribute("s", s);

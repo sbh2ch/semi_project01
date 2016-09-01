@@ -27,6 +27,5 @@ public class DetailDAO {
 	
 	public void delete(int hostNo){
 		session.delete("myDetail.delete", hostNo);
-		session.commit();
 	}
 }

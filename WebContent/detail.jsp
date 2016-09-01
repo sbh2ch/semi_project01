@@ -51,13 +51,15 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="container col-md-6" align="center">
 				<img class="img-responsive img-rounded" alt="" src="/semiProject01/down?path=${p.imgPath}/&realName=${p.imgRealName}&draw=Y"> <br>
-				<form class="form-inline" method="post" accept-charset="utf-8" action="" onsubmit="return dateChk();">
+				<form class="form-inline" method="get" accept-charset="utf-8" action="/semiProject01/apply?guestEmail=${user.email}" onsubmit="return dateChk();">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="form">
 								<div class="col-md-12" align="left">
 									<fmt:formatDate value="${p.startDate}" pattern="yyyy-MM-dd" var="startDate" />
 									<fmt:formatDate value="${p.endDate}" pattern="yyyy-MM-dd" var="endDate" />
+									<input type="hidden" name="guestEamil" value="${user.email}">
+									<input type="hidden" name="hostNo" value="${s.hostNo}">
 									<c:choose>
 										<c:when test="${user.email == s.hostEmail}">
 											<c:if test="${s.hostingStatus == 'W'}">
@@ -112,19 +114,45 @@
 														<span class="fa fa-pencil"></span>
 														&nbsp;&nbsp;글수정
 													</button>
+													<br>
+													<br>
+													<button type="button" onclick="location.href='/semiProject01/deleteBoard?hostNo=${s.hostNo}'" style="width: 100%" class="form-control btn btn-danger">
+														<span class="fa fa-pencil"></span>
+														&nbsp;&nbsp;글삭제
+													</button>
 												</c:otherwise>
 											</c:choose>
 										</c:if>
 										<c:if test="${s.hostingStatus == 'A'}">
+											
 											<c:choose>
 												<c:when test="${user.email == s.hostEmail}">
-													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-success">
+													<fmt:formatDate value="${s.checkIn}" pattern="yyyy-MM-dd" var="guestCheckIn" />
+													<fmt:formatDate value="${s.checkOut}" pattern="yyyy-MM-dd" var="guestCheckOut" />
+													<div class="col-md-12" align="left">
+													<label>신청인 </label>
+													<br>
+													<span>${guestName}</span>
+													<br>
+													<br>
+													<label>체크인</label>
+													<br>
+													<span>${guestCheckIn}</span>
+													<br>
+													<br>
+													<label>체크아웃</label>
+													<br>
+													<span>${guestCheckOut}</span>
+													<br>
+													<br>
+													</div>
+													<button type="button" onclick="location.href='/semiProject01/response?res=accept&hostNo=${s.hostNo}'" style="width: 100%" class="form-control btn btn-success">
 														<span class="fa fa-smile-o"></span>
 														&nbsp;&nbsp;수락
 													</button>
 													<br>
 													<br>
-													<button type="button" onclick="location.href='/semiProject01/main'" style="width: 100%" class="form-control btn btn-warning">
+													<button type="button" onclick="location.href='/semiProject01/response?res=reject&hostNo=${s.hostNo}'" style="width: 100%" class="form-control btn btn-warning">
 														<span class="fa fa-times"></span>
 														&nbsp;&nbsp;거절
 													</button>
