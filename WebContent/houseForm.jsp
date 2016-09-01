@@ -170,7 +170,7 @@
 					<div id="dropbox" ondragenter="return false;"  ondragover="return false;"
        					ondrop="onDrop(event)" style=" width:100%; height: 300px; border: 5px dotted gray; border-radius:10%;" >여기에 드래그 앤 드랍</div>
 					<input type="file" name="img" />
-					<!--<input type="hidden" name="hostStatusH" value="NO" />-->
+					<input type="hidden" name="hostNoH" value="${p.hostNo}" />
 					<br>
 					<br>
 					<a class="btn btn-lg btn-primary" href="#myCarousel" data-slide="prev" onclick="startSlide('prev')">이전단계</a>

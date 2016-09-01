@@ -37,14 +37,14 @@ public class HostInfoController extends HttpServlet
 		LocationVO lVO = new LocationVO();
 		PreviewVO pVO = new PreviewVO();
 		StatusVO sVO = new StatusVO();
-		MemberVO mVO = new MemberVO();
+		//MemberVO mVO = new MemberVO();
 		
 		PreviewDAO pDAO = new PreviewDAO();
 		DetailDAO dDAO = new DetailDAO();
 		LocationDAO lDAO = new LocationDAO();
 		StatusDAO sDAO = new StatusDAO();
 						
-		mVO.setEmail(request.getParameter("hostEmailH"));
+		//mVO.setEmail(request.getParameter("hostEmailH"));
 		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd");
 		String path = sdf.format(new Date());
 		ServletContext context = request.getServletContext(); 
