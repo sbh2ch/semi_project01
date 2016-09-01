@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	<title>구글맵 API 활용하기</title>
+	<title></title>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoH5tLttmCw5zCZf5i0tlFeQlVwnLiCgM" type="text/javascript"></script>	
 	<script type="text/javascript">	
 	//var marker;
@@ -109,20 +109,20 @@
 		{
 			if(marker[idx].getAnimation() != null)
 			{
-				marker[idx].setAnimation(null);				
+				marker[idx].setAnimation(null);
 			}
 			//infowindow.close();
 		} 
 		</script>
 	
-	<style type="text/css">		
+	<style type="text/css">
 		#map_view{
 			position: absolute;
 		    left: 50%;
 		    top: 0px;
 		    z-index: 3;
 		    width: 50%;
-		    height: 100%;
+		    height: 80%;
 		}
 	</style>
 </head>
