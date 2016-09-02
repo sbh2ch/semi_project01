@@ -37,7 +37,12 @@
 		position:relative;
 		top:20px;
 		text-align:center;		
-		z-index: 1000;		
+		z-index: 1000;	
+		text-overflow:ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 250px;
+		text-align: left;
 	}
 	#back{		
 		text-align: center;
@@ -89,7 +94,9 @@
 				<img alt="" src="/semiProject01/down?path=${vo.imgPath}/&realName=${vo.imgRealName}&draw=Y" width="100%" class="img-rounded">
 				<div id="back">
 				</div>
-				<label><c:out value="${vo.addr}" /></label>
+				<label><c:out value="${vo.addr}" /></label><br>
+				<label><c:out value="${vo.houseDesc}" /></label><br>
+				<label><c:out value="일당 ${vo.houseCost} ￦" /></label>
 			</div>
 				<input type="hidden" name="VOaddr" value="${vo.addr}"/>
 				<input type="hidden" name="VOx" value="${vo.xPoint}"/>
