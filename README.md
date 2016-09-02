@@ -5,10 +5,10 @@
 
 <h4>쪽지함</h4>
 create table t86_1_members_msg(<br>
-msg_no number primary key,<br>
+no number primary key,<br>
 sender varchar2(50),<br>
-receiver varchar2(50),<br>
-content varchar2(2000)<br>
+addressee varchar2(50),<br>
+message varchar2(2000)<br>
 );<br>
 <br>
 <h4>회원</h4>
