@@ -17,7 +17,7 @@
 		<filter-class>filter.AuthFilter</filter-class>
 		<init-param>
 			<param-name>pages</param-name>
-			<param-value>/main;/login/loginForm;/login/login;/signUpForm;/signUp;main.jsp;footer.jsp;header.jsp;signin.jsp;signupForm.jsp;/down;/bootstrap.min.css;/ie-emulation-modes-warning.js;/ie10-viewport-bug-workaround.js;/images/img2.jpg;/jumbotron.css;/bootstrap.min.js;/signin.css;</param-value>
+			<param-value>/main;/login/loginForm;/login/login;/signUpForm;/signUp;main.jsp;footer.jsp;header.jsp;signin.jsp;signupForm.jsp;/down;/bootstrap.min.css;/ie-emulation-modes-warning.js;/ie10-viewport-bug-workaround.js;/images/img2.jpg;/jumbotron.css;/bootstrap.min.js;/signin.css;jpg;css;png;</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
