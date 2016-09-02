@@ -237,7 +237,7 @@ var Y_point;
 			{					
 				// results[0].geometry.location.lat() 과
 				// results[0].geometry.location.lng() 값으로 분리되서 날아온다.
-				infowindow.setContent(contentString + "여기좌표:" + results[0].geometry.location.lat() +","+ results[0].geometry.location.lng());
+				//infowindow.setContent(contentString + "여기좌표:" + results[0].geometry.location.lat() +","+ results[0].geometry.location.lng());
 				// results[0] 결과값엔 formatted_address 로 바로 주소 문자열을 얻어올수도 있다.
 		     	var stringAddr = results[0].formatted_address;
 		     	var nation = returnNation(results);
