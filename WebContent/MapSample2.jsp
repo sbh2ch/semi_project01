@@ -119,10 +119,10 @@
 		#map_view{
 			position: absolute;
 		    left: 50%;
-		    top: 0px;
+		    top: 55px;
 		    z-index: 3;
 		    width: 50%;
-		    height: 80%;
+		    height: 75%;
 		}
 	</style>
 </head>

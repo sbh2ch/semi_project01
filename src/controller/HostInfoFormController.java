@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +22,7 @@ public class HostInfoFormController extends HttpServlet
 	{
 		MemberVO user = (MemberVO) request.getSession().getAttribute("user");
 		String uEmail = user.getEmail();
+		
 		request.setAttribute("email", uEmail);
 		request.setAttribute("istrue", "InsertMode");
 		RequestDispatcher rd = request.getRequestDispatcher("hostInfoForm.jsp");

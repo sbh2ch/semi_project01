@@ -64,7 +64,7 @@
 				<c:forEach var="addr" items="${list}">
 					<tr>
 						<td width='15%'><c:out value="${addr.no}" /></td>
-						<td width='20%'><c:out value="${addr.addressee}" /></td>
+						<td width='20%'><c:out value="${addr.sender}" /></td>
 						<td><c:out value="${addr.message}" /></td>
 					</tr>
 				</c:forEach>

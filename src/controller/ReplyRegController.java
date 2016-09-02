@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,9 +17,9 @@ import reply.ReplyVO;
 public class ReplyRegController extends HttpServlet{
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-		int no = Integer.parseInt(request.getParameter("hostNo"));
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{			
+		/*int no = Integer.parseInt(request.getParameter("hostNo"));
 		 
 		 ReplyVO rvo = new ReplyVO();
 		 ReplyDAO dao = new ReplyDAO();
@@ -30,8 +31,19 @@ public class ReplyRegController extends HttpServlet{
 		 
 		 dao.insertReply(rvo);
 		 
-		 response.sendRedirect("detail?no=" +no);
+		 response.sendRedirect("detail?no=" +no);*/
+		response.setContentType("text/plain; charset=utf-8");
+		int hostNo = Integer.parseInt(request.getParameter("hostNo"));
+		String email = request.getParameter("senderEmail");
+		String content = request.getParameter("content");
+		String name = request.getParameter("name");
+		
+		PrintWriter out = response.getWriter();
+		String json = "";
+		json += "[{\"name\": \""+name+"\", \"email\": \""+email+"\", \"content\": \""+content+"\"}]";
+		out.print(json);
+		out.close();
+		
+		response.sendRedirect("detail.jsp?hostNo="+hostNo);
 	}
-	
-	
 }

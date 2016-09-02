@@ -20,6 +20,8 @@
 <link href="css/jumbotron.css" rel="stylesheet">
 
 <script src="js/ie-emulation-modes-warning.js"></script>
+<link href="css/bootstrap-social.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/ie10-viewport-bug-workaround.js"></script>
@@ -281,7 +283,8 @@ var Y_point;
 		<%@ include file="attach/footer.jsp"%>
 		</footer>
 <script type="text/javascript">
-	var thisMode = "";		
+	var thisMode = "";
+	//var maxYear;
 	(function isModify(bool)
 	{
 		thisMode = bool;
@@ -291,13 +294,21 @@ var Y_point;
 		{
 			X_point	= "37.49794199999999";		// Y 좌표
 			Y_point	= "127.02762099999995";		// X 좌표
-			//alert("입력모드" + X_point + Y_point);
+			//var sdf = new SimpleDateFormat("yyyy-MM-dd");
+			var curDay = new Date();
+			//curDay = curDay.getFullYear() + "-" + (curDay.getMonth()+1) + "-" + curDay.getDate();
+			document.getElementsByName("startDate")[0].min = curDay;
+			document.getElementsByName("endDate")[0].min = curDay;
+			//curDay = new Date();
+			//maxYear = new Date(curDay.getFullYear()+1, curDay.getMonth() + 1, curDay.getDate());
+			//document.getElementsByName("startDate")[0].max = maxYear;
+			//document.getElementsByName("endDate")[0].max = maxYear;
 		}
 		else if(thisMode == 'UpdateMode')	// 수정일때
 		{
 			X_point = '${l.xPoint}';
 			Y_point = '${l.yPoint}';
-			//alert("수정모드" + X_point + Y_point);
+			document.getElementsByName("startDate")[0].min = document.getElementsByName("startDate")[0].value;
 			/* 1단계 데이터들 로딩 */
 			document.getElementsByName("houseType")[0].value = '${d.houseType}';
 			var roomTypeRadio = document.getElementsByName("roomType");
@@ -427,6 +438,8 @@ var Y_point;
 		
 		var sDateV = document.getElementsByName("startDate")[0].value;
 		var sDateArr = sDateV.split("-");
+		document.getElementsByName("endDate")[0].min = sDateV;
+		//document.getElementsByName("endDate")[0].max = maxYear;
 		
 		var eDateV = document.getElementsByName("endDate")[0].value;
 		var eDateArr = eDateV.split("-");
