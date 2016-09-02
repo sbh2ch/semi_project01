@@ -3,13 +3,6 @@
 <h2>테이블 구성</h2>
 <h2>테이블 구성1</h2>
 
-<h4>쪽지함</h4>
-create table t86_1_members_msg(<br>
-no number primary key,<br>
-sender varchar2(50),<br>
-addressee varchar2(50),<br>
-message varchar2(2000)<br>
-);<br>
 <br>
 <h4>회원</h4>
 create table t86_1_members(<br>
@@ -77,4 +70,13 @@ name varchar2(50),<br>
 email varchar2(50),<br>
 content varchar2(1000),<br>
 reg_date date<br>
+);<br>
+
+
+<h4>쪽지함</h4>
+create table t86_1_members_msg(<br>
+no number primary key,<br>
+sender varchar2(50),<br>
+addressee varchar2(50),<br>
+message varchar2(2000)<br>
 );<br>
