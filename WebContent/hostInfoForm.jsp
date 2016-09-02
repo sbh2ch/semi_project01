@@ -81,7 +81,7 @@ var Y_point;
 		var markerMaxHeight = 1000;
 
 		// 말풍선 내용
-		contentString = "";
+		contentString = "<h5>마커를 드래그해 위치를 지정하세요</h5>";
 		//'<h2>위즈소프트</h2>'+
 		//'<p>위즈소프트는 WEB Agency & SI 분야에서 10년 이상의 풍부한 경험을 보유한<br />' +
            //'전문 인력으로 구성된 E-Business 전문 기업입니다.</p>' +
@@ -108,7 +108,7 @@ var Y_point;
 		//console.dir(marker);
 
 		infowindow = new google.maps.InfoWindow({content: contentString, maxWidth: markerMaxWidth, maxHeight:markerMaxHeight});
-					
+		infowindow.open(map, marker);
 		/* google.maps.event.addListener(marker, 'click', function() {
 			infowindow.open(map, marker);
 		}); */
@@ -144,13 +144,13 @@ var Y_point;
 			    	/* var longC = "<div style='left:600px; height:600px; position: absolute; z-index:3;'>"
 			    				+"<select>";  */
 			    	
-			    	var longC = "<h3 style='text-align: center;'>주소를 고르세요</h3><select>";
+			    	/* var longC = "<h3 style='text-align: center;'>주소를 고르세요</h3><select>";
 				    for(var i = 0 ; i < results.length-1 ; i++)
 				   	{
 				    	longC = longC + "<option>" + results[i].formatted_address + "</option>";					    	
 				   	}
 				    longC = longC + "</select></div>";
-				    infowindow.setContent(longC);
+				    infowindow.setContent(longC); */
 				    //alert(longC);
 					/*infowindow.setContent(
 							contentString + "여기좌표:" 
@@ -192,7 +192,7 @@ var Y_point;
 			     	//aForm.addr.value = stringAddr;
 			     	//aForm.xPoint.value = xPoint;
 			     	//aForm.yPoint.value = yPoint;
-					infowindow.open(map, marker);
+					//infowindow.open(map, marker);
 					// 맵에 비치는 중앙 지역을 마커의 위치로. 
 					fixMapCenter();
 				      //} 
